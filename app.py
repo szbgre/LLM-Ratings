@@ -16,15 +16,21 @@ def main():
 
     categories = ['Q1', 'Q2', 'Q3', 'Q4', 'Q5']
     labels_base_url = "https://raw.githubusercontent.com/szbgre/LLM-Ratings/master/Labels/"
+    categories_base_url = "https://raw.githubusercontent.com/szbgre/LLM-Ratings/master/Categories/"
 
-    cols = st.columns(len(categories))
+    # Display images first
+    image_cols = st.columns(len(categories))
+    for i, category in enumerate(categories):
+        with image_cols[i]:
+            st.image(f"{labels_base_url}{category}.png", use_column_width=True)
+
+    # Display buttons below images
+    button_cols = st.columns(len(categories))
     selected_category = None
     for i, category in enumerate(categories):
-        with cols[i]:
-            # Use button for selection and display category image
+        with button_cols[i]:
             if st.button(category):
                 selected_category = category
-            st.image(f"{labels_base_url}{category}.png", use_column_width=True)
 
     if selected_category:
         models = ['GPT3.5', 'GPT4', 'Llama-2-70B-Chat-GGU', 'Llama-2-70B-GGU']
@@ -33,7 +39,9 @@ def main():
             data[model] = load_json_from_git(selected_category, model)
 
         if data:
+            st.image(f"{categories_base_url}{selected_category}.png", use_column_width=True)
             st.markdown(f"### Responses and Evaluations for {selected_category}")
+            
             # Assuming all models have the same number of questions
             num_questions = min(len(data[model]) for model in models if data[model])
             for q_index in range(num_questions):
@@ -42,7 +50,7 @@ def main():
                     if responses and q_index < len(responses):
                         response = responses[q_index]
                         if not question_displayed:
-                            st.markdown(f"## Question {response['question_id']}")
+                            st.markdown(f"#### Question {response['question_id']}")
                             st.write(response['prompt'])
                             question_displayed = True
                         

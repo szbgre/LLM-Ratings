@@ -1,37 +1,47 @@
 import streamlit as st
 import json
-import requests  # For loading JSON files from GitHub
+import requests
 
-def load_json_from_github(category, model_name):
-    base_url = f"https://github.com/szbgre/LLM-Ratings"
+def load_json_from_git(category, model_name):
+    base_url = f"https://raw.githubusercontent.com/szbgre/LLM-Ratings/{category}/{model_name}.json"
     response = requests.get(base_url)
-    return response.json() if response.status_code == 200 else []
+    return response.json()
 
 def main():
-    st.title('Language Model Performance Evaluation')
+    st.title('LLM Answers Evaluation')
 
-    # Step 1: Choose a category
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/800px-ChatGPT_logo.svg.png", width=300)
+    with col2:
+        st.image("https://eu-images.contentstack.com/v3/assets/blt6b0f74e5591baa03/blt98d8a946b63c9b5f/64b7170ab314c94aa481d8c3/Untitled_design_(1).jpg", width=540)
+
     st.markdown("### Step 1: Choose a category")
-    category = st.selectbox("Select a category", ('Q1', 'Q2', 'Q3', 'Q4', 'Q5'))
+    category = st.selectbox("Select a category", ['Q1', 'Q2', 'Q3', 'Q4', 'Q5'])
 
-    # Step 2: Load JSON data for selected category
     models = ['GPT3.5', 'GPT4', 'Llama-2-70B-Chat-GGU', 'Llama-2-70B-GGU']
-    data = {model: load_json_from_github(category, model) for model in models}
+    data = {}
+    for model in models:
+        data[model] = load_json_from_git(category, model)
 
-    # Step 3: Display questions and model responses
     if data:
-        st.markdown("### Step 2: Evaluate the responses")
-
+        st.markdown("### Responses and Evaluations")
         # Assuming all models have the same number of questions
-        for i in range(len(data[models[0]])):
-            st.markdown(f"## Question {data[models[0]][i]['question_id']}")
-            st.write(data[models[0]][i]['prompt'])
-
-            for model in models:
-                with st.expander(f"{model} Output"):
-                    st.write(data[model][i]['output'])
-                    st.markdown(f"**Rating:** {data[model][i]['rating']}")
-                    st.text(f"Comment: {data[model][i]['comment']}")
+        num_questions = len(data[models[0]])
+        for q_index in range(num_questions):
+            question_displayed = False
+            for model, responses in data.items():
+                response = responses[q_index]
+                if not question_displayed:
+                    st.markdown(f"## Question {response['question_id']}")
+                    st.write(response['prompt'])
+                    question_displayed = True
+                
+                st.markdown(f"**{model} Output:**")
+                st.write(response['output'])
+                st.markdown(f"**Rating:** {response['rating']}")
+                if response['comment']:
+                    st.markdown(f"**Comment:** {response['comment']}")
 
 if __name__ == "__main__":
     main()

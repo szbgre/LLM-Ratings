@@ -11,7 +11,14 @@ def load_json_from_git(category, model_name):
         st.error(f"Failed to load data for {model_name} in {category}: HTTP {response.status_code}")
         return None
 
-def get_rating_color(rating):
+def get_rating_color_and_description(rating):
+    descriptions = {
+        '1': 'Misinterpretation of the Problem',
+        '2': 'Incorrect Solution',
+        '3': 'Partially Correct Solution',
+        '4': 'Mostly Correct Solution',
+        '5': 'Completely Correct Solution'
+    }
     custom_colors = [
         'rgba(135, 206, 250, 0.6)',  # Light blue for '1'
         'rgba(100, 149, 237, 0.6)',  # Blue for '2'
@@ -19,7 +26,7 @@ def get_rating_color(rating):
         'rgba(255, 156, 143, 0.6)',  # Light coral for '4'
         'rgba(255, 182, 193, 0.6)'   # Pink for '5'
     ]
-    return custom_colors[int(rating) - 1]
+    return custom_colors[int(rating) - 1], descriptions[rating]
 
 def main():
     st.title('LLM Answers Evaluation')
@@ -60,21 +67,19 @@ def main():
                     if responses and q_index < len(responses):
                         response = responses[q_index]
                         if not question_displayed:
-                            st.markdown(f"#### Question {response['question_id']}")
-                            st.write(response['prompt'])
+                            st.markdown(f"<div style='background-color: #f0f0f0; padding: 10px; border-radius: 5px;'>#### Question {response['question_id']}<br>{response['prompt']}</div>", unsafe_allow_html=True)
                             question_displayed = True
 
-                        rating_color = get_rating_color(response['rating'])
+                        rating_color, description = get_rating_color_and_description(response['rating'])
                         with st.container():
                             st.markdown(f"""
-                            <div style="border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: {rating_color}">
+                            <div style="border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: {rating_color};"
+                                        title="{description}: {response['comment']}">
                                 <h4>{model}</h4>
-                                <p><strong>Rating:</strong> {response['rating']}</p>
+                                <p><strong>Rating:</strong> {response['rating']} - {description}</p>
                             </div>
                             """, unsafe_allow_html=True)
                         st.write(response['output'])
-                        if response['comment']:
-                            st.markdown(f"**Comment:** {response['comment']}")
 
 if __name__ == "__main__":
     main()

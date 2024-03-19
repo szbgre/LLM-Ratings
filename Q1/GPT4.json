@@ -1,0 +1,102 @@
+[
+  {
+    "question_id": "1",
+    "prompt": "Identify the truth constants, literals, variables, and clauses of the following formula:\n$$\n(x \\vee y) \\wedge(z \\vee \\neg y \\vee T) \\wedge(x)\n$$",
+    "output": "Truth Constants:\n- T (this represents the logical value of \"True\")\n\nLiterals:\n- x\n- y\n- z\n- neg y (the negation of y)\n\nVariables:\n- x\n- y\n- z\n\nClauses:\n- (x v y) \n- (z v \u00acy v T)\n- (x)",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "#easy\nTruth constant not counted as a literal, could be correct depending on definition. ",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "2",
+    "prompt": "The following formula is given\n$$\n\\bigwedge_{i=1}^2 \\bigvee_{j=1}^3 l_{i j}\n$$\n\nExpand this formula and write it down with $\\vee$ and $\\wedge$. Furthermore, write it down in set notation.",
+    "output": "The given formula represents a series of logical operations. The wedge symbol \"\u2227\" represents \"and\", meaning all conditions must be satisfied together. The vee symbol \"\u2228\" represents \"or\", meaning any one of the conditions can be satisfied.\n\nThe given formula essentially means \"for all i from 1 to 2, any j from 1 to 3 must be satisfied\". This can be expanded as follows:\n\nUsing the \"\u2228\" and \"\u2227\" symbols:\n(l_11 \u2228 l_12 \u2228 l_13) \u2227 (l_21 \u2228 l_22 \u2228 l_23)\n\nIn set notation, this would be represented as:\n{ {l_11, l_12, l_13}, {l_21, l_22, l_23} }",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "#easy",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "3",
+    "prompt": "The empty clause is ...\n- (a) ... always true.\n- (b) ... always false.\n- (c) ... true if the rest of the formula is true.",
+    "output": "- (b) ... always false.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "#easy",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "4",
+    "prompt": "How many models does the empty clause have?",
+    "output": "The empty clause is a contradiction and has no models. It is always false, independent of the truth values of the variables occurring in it.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "#easy",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "5",
+    "prompt": "What do the rules of De Morgan say?\n- (a) $\\neg(a \\vee b) \\Leftrightarrow(\\neg a \\wedge \\neg b)$\n- (b) $\\neg(a \\wedge b) \\Leftrightarrow(\\neg a \\vee \\neg b)$\n- (c) $\\neg(a \\vee b) \\Leftrightarrow(\\neg a \\wedge \\neg b)$\n- (d) $a \\wedge(b \\vee a) \\Leftrightarrow a$",
+    "output": "The rules of De Morgan's in logic and Boolean algebra are:\n\n- (a) $\\neg(a \\vee b) \\Leftrightarrow(\\neg a \\wedge \\neg b)$, it says the negation of a disjunction is the conjunction of the negations. \n- (b) $\\neg(a \\wedge b) \\Leftrightarrow(\\neg a \\vee \\neg b)$, it says the negation of a conjunction is the disjunction of the negations. \n\nThe two rules (c) and (d) are incorrect, with rule (c) being a repetition of rule (a), and rule (d) not being related to De Morgan's laws.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "Typo in (c), however correctly interpreted.",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "6",
+    "prompt": "Which of the following formulas are equivalent to $((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow$ $(x \\vee \\neg y)) ?$\n- (a) $((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow(x \\vee \\neg y)) \\wedge((\\neg x \\rightarrow(z \\vee y)) \\leftrightarrow(\\neg y \\vee x))$\n- (b) $((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow(x \\vee \\neg y)) \\vee \\perp$\n- (c) $\\neg \\neg((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow(x \\vee \\neg y))$\n- (d) $((\\neg x \\rightarrow(y \\vee z)) \\rightarrow(x \\vee \\neg y)) \\wedge((\\neg x \\rightarrow(z \\vee y)) \\vee \\neg(\\neg y \\vee x))$\n- (e) $((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow(x \\vee \\neg y)) \\wedge a$",
+    "output": "The formulas equivalent to the given formula, $((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow(x \\vee \\neg y))$, are options (b) and (c). \n\nExplanation:\n- (b): Saying a statement or false is the same as just saying the statement, as it all depends on the statement to be true or false. Therefore, this formula is equivalent to the original one.\n- (c): Negating something twice means we are back to the initial statement. Hence, $\\neg \\neg ((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow (x \\vee \\neg y))$ is just the same as the original formula.\n\nThe other options are not equivalent to the original formula.",
+    "rating": 3,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "Only identified 2/4 correctly (better than GPT3.5)",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "7",
+    "prompt": "Write the following expression in standard prefix form (no conditions under quantifier, every quantifier binds exactly one variable, etc.) and generate a syntax tree for it:\n$$\n\\forall x: \\exists y>2 x: \\sqrt{\\frac{1}{x+y}} \\geq x^2\n$$",
+    "output": "The provided expression is not well-formed according to the standard rules of logic. However, if we interpret and reorganize it correctly, it could be rephrased as follows (assuming y > 2 condition):\n\n$$\n\\forall x (\\exists y (y > 2 \\land \\sqrt{\\frac{1}{x+y}} \\geq x^2))\n$$\n\nThe syntax tree for the formula above is represented as follows:\n\n```\n                        \u2203\n                       / \\\n                     \u2228   \u221a\n                    /  /   \\\n                  > 1     +   \n                 / \\     /  \\\n                y   2   x  y\n```\n\nThe expression cannot be perfectly mapped to a tree, as we have two relationships (greater than and addition) involving 'y'. Also, please note that syntax trees can differ depending on conventions used, and this one follows standard conventions of having variables and values as leaves and operators as nodes. Also, the above tree illustrates a postfix notation (reverse Polish notation) rather than prefix. Prefix notation would look like (\u2203 y (\u2227 (> y 2)) (\u221a (/ 1 (+ x y)) (\u2265 x^2)), which cannot be perfectly represented in a tree diagram due to the dual relationship of 'y'.",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "Wrong interpretation of the formula (y > 2 instead of y > 2x), wrong syntax tree.",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "8",
+    "prompt": "Let $p$ be a unary predicate. Express the statements using the standard quantifiers of first-order logic.\n(a) there exists at most one value $x$ such that $p(x)$ holds.\n(b) there exists exactly one value $x$ such that $p(x)$ holds.",
+    "output": "(a) The statement \"there exists at most one value $x$ such that $p(x)$ holds\" can be expressed in first-order logic as:\n\u2200a, \u2200b ((p(a) \u2227 p(b)) \u2192 a = b)\n\nThis statement says that for all pairs of individuals a and b, if both individual a satisfies predicate p and individual b satisfies predicate p, then a must be equal to b. \n\n(b) The statement \"there exists exactly one value $x$ such that $p(x)$ holds\" can be differently expressed in first-order logic as:\n\u2203x (p(x) \u2227 \u2200y (p(y) \u2192 y = x))\n\nThis statement says there is an individual x that satisfies the predicate p and for all individuals y, if y satisfies predicate p then y must be equal to x.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "9",
+    "prompt": "Below you see some formulas without parentheses. Write in each of these formulas a separate pair of parentheses () around EVERY logical connective and around EVERY quantifier such that the formula preserves its meaning.\n\nThus the number of parenthesis pairs () to be added equals the total number of connectives and quantifiers.\n\nExample: add 3 pairs of parentheses () to \"\u00acp[x] \u2227 q[x] \u2192 r[x]\" Solution: (((\u00acp[x]) \u2227 q[x]) \u2192 r[x])\n\nTask 1a: add here 4 pairs of parentheses ()\np[x] \u2227 q[x] \u2192 \u00acr[x] \u2228 (s[x]\n\nTask 1b: add here 5 pairs of parentheses ()\np[x] \u2227 \u00ac \u2200y:D. q[y] \u2194 p[y] \u2227 r[x][y]\n\nTask 1c: \n\u2203y:D. p[x] \u2192 r[x][y] \u2227 \u00acr[y][x] \u2228 \u2200z:D. p[z] \u2192 r[y][z]\n",
+    "output": "Task 1a: \n((((p[x]) \u2227 q[x]) \u2192 (\u00acr[x])) \u2228 s[x])\n\nTask 1b: \n((p[x]) \u2227 (\u00ac ( \u2200y:D. ((q[y]) \u2194 ((p[y]) \u2227 r[x][y])))))\n\nTask 1c:\n(((\u2203y:D. ((p[x]) \u2192 r[x][y])) \u2227 (\u00acr[y][x])) \u2228 (\u2200z:D. ((p[z]) \u2192 r[y][z])))",
+    "rating": 3,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "1a correct, 1b correct, 1c wrong (better than GPT3.5)",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "10",
+    "prompt": "Let \\(S, S_0, \\ldots, S_5\\) be sequents and consider the following proof tree:\n\\begin{enumerate}\n  \\item[a)] Give a forward style presentation of this proof.\n  \\item[b)] Give a backward style presentation of this proof.\n\\end{enumerate}\n\\begin{prooftree}\n    \\AxiomC{}\n    \\RightLabel{$R_2$}\n    \\UnaryInfC{$S_4$}\n    \\AxiomC{}\n    \\RightLabel{$R_4$}\n    \\UnaryInfC{$S_5$}\n    \\RightLabel{$R_5$}\n    \\BinaryInfC{$S_1$}\n    \\AxiomC{}\n    \\RightLabel{$R_6$}\n    \\UnaryInfC{$S_2$}\n    \\AxiomC{}\n    \\RightLabel{$R_4$}\n    \\UnaryInfC{$S_5$}\n    \\RightLabel{$R_1$}\n    \\BinaryInfC{$S_1$}\n    \\RightLabel{$R_7$}\n    \\UnaryInfC{$S_3$}\n    \\RightLabel{$R_3$}\n    \\BinaryInfC{$S$}\n\\end{prooftree}",
+    "output": "Forward Style Presentation:\n\n1. $S_4$ using rule $R_2$\n2. $S_5$ using rule $R_4$\n3. $S_1$ from $S_4$ and $S_5$ with rule $R_5$\n4. $S_2$ using rule $R_6$\n5. $S_5$ using rule $R_4$\n6. $S_1$ from $S_2$ and $S_5$ with rule $R_1$\n7. $S_3$ from $S_1$ with rule $R_7$\n8. $S$ from $S_1$ and $S_3$ with rule $R_3$ \n\nBackward Style Presentation:\n\n1. To get $S$, use $S_1$ and $S_3$ with rule $R_3$\n2. To get $S_1$, use $S_4$ and $S_5$ with rule $R_5$; use $S_2$ and $S_5$ with rule $R_1$\n3. To get $S_4$, use rule $R_2$\n4. To get $S_5$, use rule $R_4$\n5. To get $S_2$, use rule $R_6$\n6. To get $S_3$, use $S_1$ with rule $R_7$",
+    "rating": 4,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "Last step from backward style presentation in wrong order.",
+    "timestamp": "2024-02-08"
+  }
+]

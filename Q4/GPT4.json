@@ -1,0 +1,102 @@
+[
+  {
+    "question_id": "1",
+    "prompt": "Find a formula over variables a, b, c that has exactly five models.",
+    "output": "A logical formula over variables a, b, c that has exactly five models can be achieved by creating a formula that follows specific conditions, such that only five combinations of variable assignments make the formula true. Here is an example:\n\nTake a Boolean formula (a \u2227 b) \u2228 (\u00aca \u2227 c)\n\nThis formula has five models where it is true:\n\n- a = true, b = true, c = true\n- a = true, b = true, c = false\n- a = false, b = false, c = true\n- a = false, b = true, c = true\n- a = true, b = false, c = true\n\nNote that the actual values are ordered in an arbitrary way. So by swapping around the variables or their assignments, you can create more formulas with exactly five models.",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-09"
+  },
+  {
+    "question_id": "2",
+    "prompt": "Represent the formulas\n- (\u00aca \u2228 \u00acb) \u2227 (a \u2228 b)\n- \u00ac(a \u2194 b)\n by equivalent formulas using only \u00ac and \u2228 operators. Argue that the formulas are indeed equivalent.",
+    "output": "1. (\u00aca \u2228 \u00acb) \u2227 (a \u2228 b)\nFirst, let's use De Morgan's Law, which states that \u00ac(p \u2227 q) is equivalent to (\u00acp \u2228 \u00acq), and \u00ac(p \u2228 q) is equivalent to (\u00acp \u2227 \u00acq). However, this formula already uses only \u00ac and \u2228 operators so there's no need for transformation.\n\n2. \u00ac(a \u2194 b)\nTo represent the formula \u00ac(a \u2194 b) using only \u00ac and \u2228 operators, we must first understand that \"a \u2194 b\" represents \"a if and only if b,\" which is equalent to \"(a \u2227 b) \u2228 (\u00aca \u2227 \u00acb)\". So we can replace this in our formula to get \"\u00ac((a \u2227 b) \u2228 (\u00aca \u2227 \u00acb))\". \nNow we can apply De Morgan's laws to remove the \u2227 operator which gives us:\n\"\u00ac(a \u2227 b) \u2227 \u00ac(\u00aca \u2227 \u00acb)\"\nNow again applying De Morgan's laws to this expression will give us: \"(\u00aca \u2228 \u00acb) \u2227 (a \u2228 b)\".\n\nBoth \"\u00ac(a \u2194 b)\" and \"(\u00aca \u2228 \u00acb) \u2227 (a \u2228 b)\" are equivalent because they both express the same thing: they are false if and only if 'a' and 'b' are both the same (i.e., both true or both false) and true otherwise. Therefore, we can see that the transformation via De Morgan's laws produced an equivalent formula that uses only the \u00ac and \u2228 operators.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-09"
+  },
+  {
+    "question_id": "3",
+    "prompt": "Show that formula \n- \u00ac((a \u2227 b) \u2228 (\u00aca \u2227 \u00acb)) \n- (a \u2227 b) \u2228 (\u00aca \u2227 \u00acb) \n is (un)satisfiable by using the sequent calculus.",
+    "output": "First, let's define what it means for a formula to be satisfiable. A formula is said to be satisfiable if there is an assignment of truth values to its variables that makes the formula true. However, you provided two separate logic statements. To clarify, I'll address both formulas separately and to do that we'll use the method of sequent calculus.\n\n1) \u00ac((a \u2227 b) \u2228 (\u00aca \u2227 \u00acb)) (Negative of Biconditional or XNOR)\n\nIn sequent calculus, let's assume the proposition is true, so (a \u2227 b) \u2228 (\u00aca \u2227 \u00acb) has to be false. This occurs only in two situations, either both are false (a \u2227 b is false and \u00aca \u2227 \u00acb is false) or one is true and one is false. Nevertheless, this contradicts the 2nd case because if a and b share the same value as true or false, the proposition will be true not false as assumed:\n\n(Given)  \u22a2 \u00ac((a \u2227 b) \u2228 (\u00aca \u2227 \u00acb))   \n(Continue to single out a, b)  \u22a2 ((a \u2227 b) \u2192 \u22a5) \u2227 ((\u00aca \u2227 \u00acb) \u2192 \u22a5)  \n(Definition of \u2192)  \u22a2 (\u00ac(a \u2227 b)) \u2228 (\u00ac(\u00aca \u2227 \u00acb))   \n(Simplify double not)  \u22a2 (\u00aca \u2228 \u00acb) \u2228 (a \u2227 b)\n\nBut as seen, (\u00aca \u2228 \u00acb) \u2228 (a \u2227 b) will always be true when any of a or b is true, which contradicts the original proposition. This concludes that \u00ac((a \u2227 b) \u2228 (\u00aca \u2227 \u00acb)) is unsatisfiable.\n\n2) (a \u2227 b) \u2228 (\u00aca \u2227 \u00acb) (Biconditional or XNOR)\n\nTo check if this formula is satisfiable, let's make a truth table. \n\nHere are all the possible combinations of truth values for a and b.\n\n a | b | a \u2227 b | \u00aca | \u00acb | \u00aca \u2227 \u00acb | (a \u2227 b) \u2228 (\u00aca \u2227 \u00acb)\n---|---|-----|---|---|-------|-----------------\n T | T |   T   | F  | F  |    F      |            T\n T | F |   F   | F  | T  |    F      |            F\n F | T |   F   | T  | F  |    F      |            F\n F | F |   F   | T  | T  |    T      |            T\n\nAs seen in the last column, there exist truth value assignments for a and b that make the whole formula (a \u2227 b) \u2228 (\u00aca \u2227 \u00acb) true (i.e., when both a and b are true or both a and b are false). This shows that (a \u2227 b) \u2228 (\u00aca \u2227 \u00acb) is satisfiable.",
+    "rating": 4,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-09"
+  },
+  {
+    "question_id": "4",
+    "prompt": "Assume we are trying to prove validity of formula \u03c6 by using the sequent calculus. At some point, we obtain the sequent a, b, c, \u00acd \u22a2 e. What does this tell us about \u03c6?\n- a, b, c, \u00acd, \u00ace is a counter-model\n- Nothing of interest about \u03c6\n- a, b, c, \u00acd, \u00ace is a model of \u03c6",
+    "output": "The sequent a, b, c, \u00acd \u22a2 e indicates that if a, b, c, \u00acd are true, then e must be true as well. Thus, a, b, c, \u00acd, \u00ace would actually be a counter-model for the sequent, meaning it demonstrates a situation where the assumptions of your sequent are true, but the conclusion is not. So, the first option is correct.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-09"
+  },
+  {
+    "question_id": "5",
+    "prompt": "Below you see the definitions of two formulas (F1) and (F2) interpreted over the domain (N[2] = {0,1,2}) with unary predicates (p) and (q). For each of these formula pairs answer the following questions:\n\n- Is (F2) a logical consequence of (F1)?\n- (Only if the answer to the previous question is \"no\") Give a counterexample by two predicates (p) and (q) for which (F1) is true and (F2) is false. These predicates may be simply written in the form of two sequences\n\n (p: p(0), p(1), p(2)) and (q: q(0), q(1), q(2))\n\nthat list the truth value of p and q for each argument value of the predicate. \n\n- Example:\n\n(F1): \\forall x:N[2].  p[x] \\lor q[x]\n(F2): \\forall x:N[2].  p[x] \\lor (\\forall x:N[2]. q[x])\n\nSolution:\nIs F2 a logical consequence of F1? False.\n\nCounterexample:\n- p: false, true, false\n- q: false, false, false\n\n- Task 4a: Is F2 a logical consequence of F1?\n(F1): (\u00ac\u2203x:N[2]. p[x] \u2194 q[x]) \\land (\u2203x:N[2]. p[x]) \\land (\u2203x:N[2]. q[x])\n(F2): (\u2203x:N[2]. \u00acp[x]) \\land \u2203x:N[2]. \u00acq[x])\n\n- Task 4b: Is F2 a logical consequence of F1?\n(F1): (\u2200x:N[2]. \u00acp[x] \u2192 \u00acq[x]) \\land (\u2200x:N[2]. \u00acq[x])\n(F2): (\u2203x:N[2]. \u00acp[x]) \\land \u00acq[x])\n",
+    "output": "- Task 4a: \nIs F2 a logical consequence of F1? False.\n\nCounterexample:\n- p: false, true, false\n- q: true, false, false\n\n- Task 4b: \nIs F2 a logical consequence of F1? False.\n\nCounterexample:\n- p: true, true, true\n- q: false, false, false",
+    "rating": 3,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "1/2",
+    "timestamp": "2024-02-09"
+  },
+  {
+    "question_id": "6",
+    "prompt": "Generate a formal proof for the formula (A(t,s) \u2227 (A(t,s) \u2228 B(s,u,t))) \u2194 A(t,s) using the sequent rules for predicate logic.",
+    "output": "The formal proof for the formula (A(t,s) \u2227 (A(t,s) \u2228 B(s,u,t))) \u2194 A(t,s) using the sequent rules for predicate logic can be generated as follows:\n\n1. Assume (A(t,s) \u2227 (A(t,s) \u2228 B(s,u,t))).\n2. From assumption (1), A(t,s) by \u2227-elimination (conjunctive elimination).\n3. Also from assumption (1), (A(t,s) \u2228 B(s,u,t)) by \u2227-elimination.\n4. Either case in assumption (3) gives A(t,s) because:\n     a. In the case of A(t,s), it's already fulfilled,\n     b. In the case of B(s,u,t), this doesn't affect the truth of A(t,s) which we have established.\n5. Consequently, (A(t,s) \u2227 (A(t,s) \u2228 B(s,u,t))) \u2192 A(t,s) by \u2192-introduction (implicative introduction).\n6. Now, assume A(t,s).\n7. From assumption (6), A(t,s) \u2228 B(s,u,t) by \u2228-introduction (disjunctive introduction).\n8. A(t,s) and (A(t,s) \u2228 B(s,u,t)) are both true, therefore (A(t,s) \u2227 (A(t,s) \u2228 B(s,u,t))) by \u2227-introduction (conjunctive introduction).\n9. Consequently, A(t,s) \u2192 (A(t,s) \u2227 (A(t,s) \u2228 B(s,u,t))) by \u2192-introduction.\n10. Hence, (A(t,s) \u2227 (A(t,s) \u2228 B(s,u,t))) \u2194 A(t,s) by \u2194-introduction (biconditional introduction), which completes the proof.",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-09"
+  },
+  {
+    "question_id": "7",
+    "prompt": "Prove \u00ac(z \u223c x \u2227 z \u223c y) under the assumptions \u00ac(x \u223c y), z \u223c x \u2192 x \u223c z, and x \u223c z \u2192 (z \u223c y \u2192 x \u223c y) using the sequent rules for predicate logic.",
+    "output": "Sure, I will use a sequent calculus style proof. \n\n*The symbols used mean:*\n\n- \u00ac : not\n- \u2227 : and\n- \u2192 : implies\n- \u223c : similar to\n\nWe start from the initial assumptions:\n\n1. \u00ac(x \u223c y) (Assumption)\n2. z \u223c x \u2192 x \u223c z (Assumption)\n3. x \u223c z \u2192 (z \u223c y \u2192 x \u223c y) (Assumption)\n\nWe aim to prove \u00ac(z \u223c x \u2227 z \u223c y). We will proceed to add assumptions and apply rules of inference when necessary.\n\n4. Assume z \u223c x \u2227 z \u223c y. (Assumption for Reductio ad absurdum)\n5. z \u223c x (Conjunction elimination from 4)\n6. z \u223c y (Conjunction elimination from 4)\n\nFrom our assumption 2 (z \u223c x \u2192 x \u223c z), we can infer:\n\n7. x \u223c z (Implication elimination, from 2,5)\n\nFrom our assumption 3 (x \u223c z \u2192 (z \u223c y \u2192 x \u223c y)), we can infer:\n\n8. z \u223c y \u2192 x \u223c y (Implication elimination using 7)\n\nThen, by using our assumption from 6 (z \u223c y), we can find:\n\n9. x \u223c y (Implication elimination using 8,6)\n\nBut x \u223c y contradicts with our assumption 1 (\u00ac(x \u223c y)).\n\nThis leads us to conclude that our initial assumption in 4 (z \u223c x \u2227 z \u223c y) was wrong. \n\nHence, we proved:\n\n10. \u00ac(z \u223c x \u2227 z \u223c y) (Reductio ad absurdum, from 4-9)\n\nSo, \u00ac(z \u223c x \u2227 z \u223c y) under the assumptions \u00ac(x \u223c y), z \u223c x \u2192 x \u223c z, and x \u223c z \u2192 (z \u223c y \u2192 x \u223c y) has been proven using the sequent rules for predicate logic.",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-09"
+  },
+  {
+    "question_id": "8",
+    "prompt": "Using the sequent rules for predicate logic, generate a formal proof (proof tree) of the statement (\u2203x: \u2200y: p(x,y)) \u2192 (\u2200y: \u2203x: p(x,y))",
+    "output": "Here's a formal proof using natural deduction in predicate logic:\n\n1. Assume (\u2203x: \u2200y: p(x,y)) \n2. Assume temporarily some arbitrary y (let's call it y1)\n3. Because of statement 1, we know there exists an x (let's call it x1) such that for all y, p(x1,y)\n4. Specifically, p(x1,y1) holds (substitute y1 into p(x1, y))\n5. (\u2203x: p(x,y1)) as x1 is such an x with p(x1,y1)\n6. (\u2200y: \u2203x: p(x,y)) by universal generalization, as y1 was arbitrary\n\nSo, we've shown that if (\u2203x: \u2200y: p(x,y)), then (\u2200y: \u2203x: p(x,y)).",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-09"
+  },
+  {
+    "question_id": "9",
+    "prompt": "Prove $$\n\\forall n \\in \\mathbb{N}: \\sum_{k=1}^{n} k^{2}=\\frac{n \\cdot(n+1) \\cdot(2 n+1)}{6}\n$$",
+    "output": "This statement can be proved by the method of mathematical induction.\n\nMathematical induction consists of two steps: \n\n- Base case \n- Inductive step\n\nLet's start:\n\n**Base Case**\n\nWhen n = 1, \n$$\n\\sum_{k=1}^{1} k^{2} = 1^{2} = \\frac{1 \\cdot(1+1) \\cdot(2 \\cdot 1+1)}{6} = 1.\n$$\nSo it holds true for base case.\n\n**Inductive Step**\n\nWe assume that the formula is true for n = p, that is\n$$\\sum_{k=1}^{p} k^{2} = \\frac{p(p + 1)(2p + 1)}{6}$$\n\nWe need to prove that the formula holds true for n = p + 1, that is\n$$\\sum_{k=1}^{p + 1} k^{2} = \\frac{(p+1)(p + 2)(2(p+1) + 1)}{6}$$\n\nIf we add $ (p + 1)^2 $ to both sides of the assumed formula, we get\n$$\\sum_{k=1}^{p + 1} k^{2} = \\frac{p(p + 1)(2p + 1)}{6} + (p+1)^2$$\n$$= \\frac{p^2(p+1)(2p+1)+6(p+1)^2}{6}$$\n$$= \\frac{(p+1)[p^2(2p+1) + 6(p+1)]}{6}$$\n$$= \\frac{(p+1)(2p^3 + p^2 + 6p + 6)}{6}$$\n$$= \\frac{(p+1)(p+2)(2p+1+3)}{6}$$\n$$= \\frac{(p+1)(p+2)(2(p+1) + 1)}{6}.$$\n\nThe left hand side of this equality is the formula for $n = p + 1$. Thus, in both the cases of base and inductive, the formula holds true. Therefore, given the formula is true for $n = p$, it is also true for $n = p + 1$.\n\nHence, the given statement is proved for all natural numbers n by the principle of mathematical induction.\n",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-09"
+  },
+  {
+    "question_id": "10",
+    "prompt": "Prove \u2200n \u2208 \u2115 : n \u2265 4 \u2192 2\u207f < n!",
+    "output": "To prove this inequality by induction for all natural numbers n \u2265 4, we proceed in two steps: firstly, we verify the statement for n = 4, and then we prove the implication P(n) \u21d2 P(n + 1), where P(n) stands for the inequality 2\u207f < n!.\n\n1) Base step for n = 4:\n   2\u2074 = 16 versus 4! = 24\n   The inequality holds for n = 4.\n\n2) Inductive step for P(n) \u21d2 P(n + 1):\n   Let's assume 2\u207f < n! (this is the induction hypothesis).\n   We need to prove that 2^(n+1) < (n+1)!.\n\n   Since \u2200n \u2265 4: n+1 \u2265 2, we can multiply both sides of the induction hypothesis by 2, obtaining 2^(n+1) < 2*n!.\n\n   Now we need to prove that 2*n! \u2264 (n+1)! for all n \u2265 4. \n   Recall that (n+1)! = (n+1)*n!. Because n+1 \u2265 4 and n \u2265 4, we have that n+1 \u2265 2*n. So, definitely, 2*n! \u2264 (n+1)!. \n\n   Combining these, we get that 2^(n+1) < (n+1)!. \n\nSo, base step and induction step are established, therefore the original inequality 2\u207f < n! holds for all n in \u2115 such that n \u2265 4.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-09"
+  }
+]

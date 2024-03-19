@@ -1,0 +1,102 @@
+[
+  {
+    "question_id": "1",
+    "prompt": "Given formula $\\psi:=(x) \\wedge(\\neg y \\vee \\neg z) \\wedge(\\neg x \\vee y \\vee z)$.\n- (a) $(\\neg x \\vee y \\vee z)$ is a clause of size three.\n- (b) $\\neg y$ is a literal.\n- (c) $y$ is a literal.\n- (d) $\\psi$ is a conjunction of clauses.\n- (e) $\\psi$ is a disjunction of clauses.\n- (f) $(\\neg x \\vee y \\vee z)$ is a conjunction of three literals.\n- (g) $(\\neg y \\vee \\neg z)$ is a literal.",
+    "output": "Your given statements (a) through (g) can be classified as true or false in the context of propositional logic as follows:\n\n- (a) True. $(\\neg x \\vee y \\vee z)$ is indeed a clause (a clause is a disjunction of literals), and it does contain three literals, hence it is of size three.\n\n- (b) True. $\\neg y$ is a literal. A literal is an atomic proposition (in this case, \"y\") or its negation (in this case, $\\neg y$).\n\n- (c) True. $y$ is a literal. As stated above, a literal is an atomic proposition or its negation.\n\n- (d) True. $\\psi$ is indeed a conjunction of clauses (and a clause is a disjunction of literals). The whole formula $\\psi$ is made by joining various clauses using \"and\" conjunctions.\n\n- (e) False. $\\psi$ is not a disjunction of clauses rather it is a conjunction of clauses.\n\n- (f) False. $(\\neg x \\vee y \\vee z)$ is not a conjunction of three literals but a disjunction of three literals.\n\n- (g) False. $(\\neg y \\vee \\neg z)$ is not a literal but rather a clause which is a disjunction of two literals.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "2",
+    "prompt": "How many models does a tautology have given that 10 different variables occur in the formula?\n- (a) 1024\n- (b) 0\n- (c) 2048\n- (d) 2^12\n- (e) 1",
+    "output": "A tautology is a statement that is true in all possible interpretations or models, regardless of the truth values of its variables. Since there are 10 variables in this case, and each variable can be either true or false, there are 2^10 possible models. Therefore, a tautology with 10 different variables will have 2^10 = 1024 models. So the answer is (a) 1024.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "3",
+    "prompt": "Given formula $(a \\vee b) \\vee c$, find a semantically equivalent formula that contains no other Boolean connectives than negation and implication.",
+    "output": "One way we might approach this problem involves understanding how other Boolean connectives may be expressed using negation and implication. Specifically, we might realize that 'or' can be written in terms of 'not' and 'implies' as follows: a \u2228 b \u2194 \u00aca \u2192 b.\n\nUsing this, we can replace `(a \u2228 b) \u2228 c` with its semantic equivalent containing implication and negation:\n\n`\u00ac(\u00aca \u2192 b) \u2192 c`\n\nThis can be further simplified (using De Morgan's Laws) to:\n\n`\u00ac(\u00ac(\u00aca) \u2227 \u00acb) \u2192 c` \n\nwhich can be further simplified to:\n\n`(\u00ac\u00aca \u2228 \u00ac\u00acb) \u2192 c` \n\nor:\n\n`(a \u2228 b) \u2192 c` \n\nThis is a redundant simplification because it once again has the 'or' operation. It's important to note that any further attempts to simplify this formula would require introducing a new connective other than 'not' and 'implies'. \n\nHence, the most simplified form of the formula `(a \u2228 b) \u2228 c` using only implication and negation is ` \u00ac(\u00aca \u2192 b) \u2192 c`",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "4",
+    "prompt": "Semantic Properties \\begin{tabular}{|c|c|c||c|c|c|c|} \\hline $x$ & $y$ & $z$ & $\\phi_{1}$ & $\\phi_{2}$ & $\\phi_{3}$ & $\\phi_{4}$ \\\\ \\hline 0 & 0 & 0 & 0 & 0 & 1 & 1 \\\\ 0 & 0 & 1 & 0 & 1 & 0 & 1 \\\\ 0 & 1 & 0 & 0 & 0 & 1 & 1 \\\\ 0 & 1 & 1 & 0 & 0 & 0 & 1 \\\\ 1 & 0 & 0 & 0 & 0 & 1 & 1 \\\\ 1 & 0 & 1 & 0 & 0 & 0 & 1 \\\\ 1 & 1 & 0 & 0 & 0 & 1 & 1 \\\\ 1 & 1 & 1 & 0 & 0 & 1 & 1 \\\\ \\hline \\end{tabular} Assign the following properties to the formulas $\\phi_{1}, \\phi_{2}, \\phi_{3}, \\phi_{4}$ : satisfiable, unsatisfiable, valid, refutable.",
+    "output": "Applying the definitions of the properties:\n\n1. A formula is satisfiable if there is at least one assignment of values to its variables that makes it true.\n2. A formula is unsatisfiable if there is no assignment of values to its variables that can make it true.\n3. A formula is valid if it is true for all possible assignments to its variables.\n4. A formula is refutable if it is possible to prove its negation.\n\nWe can deduce the following:\n\n- $\\phi_{1}$ is unsatisfiable because there is no assignment making it true. \n- $\\phi_{2}$ is satisfiable because there are assignments that make it true, but not all assignments make it true.\n- $\\phi_{3}$ is valid because all possible assignments make it true.\n- $\\phi_{4}$ is satisfiable because there are assignments that make it true, but not all assignments make it true.\n\nAlso note that, \n- Unsatisfiable properties are always refutable, since their negation (which is always true) can be proven. As such, $\\phi_{1}$ is also refutable.\n- Valid properties are always satisfiable, but not all satisfiable properties are valid. Thus $\\phi_{3}$ is not only valid but also satisfiable. \n- The property $\\phi_{4}$ is also refutable since its negation (which can be false) can be proven. \n- The property $\\phi_{2}$ is not refutable nor valid.",
+    "rating": 3,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "5",
+    "prompt": "Given sequent $\\vdash (\\neg x \\vee (y \\land (\\neg z \\vee w)) \\vee \\neg x)$\n\n- No rule applicable.\n- P-$\\vee$ \n- P-$\\land$\n- A-$\\land$\n- A-$\\vee$\n",
+    "output": "The given sequent seems to be a logical statement in propositional logic and the listed options are rules of inference. These include:\n\n- P-$\\vee$: The disjunction elimination rule, which allows deriving a further statement if both (or either) of the conditions in a disjunctive statement can lead to the same conclusion. For example, from x \u2228 y and \u00acx \u2192 z and \u00acy \u2192 z, we can derive z. \n\n- P-$\\land$: The conjunction elimination rule, which allows one to derive either component of a conjunction. For example, from x \u2227 y, we can derive both x and y.\n\n- A-$\\land$: The conjunction introduction rule, which allows one to derive a conjunction from individual statements. For example, from x and y, we can derive x \u2227 y.\n\n- A-$\\vee$: The disjunction introduction rule, which allows one to derive a disjunction from an individual statement. For example, from x, we can derive x \u2228 y for any y.\n\nGiven your sequent, we have the statement \u00acx \u2228 (y \u2227 (\u00acz \u2228 w)) \u2228 \u00acx. The possible rules applicable to this statement are:\n\n- P-$\\vee$ because it consists of multiple connected disjunctions,\n- P-$\\land$ because of the presence of the conjunction within the disjunctions, and \n- A-$\\land$, A-$\\vee$ for potential future steps in the proof depending on the desired goal. \n\nHowever, we cannot specifically determine the rules that are applicable without knowing exactly what you want to derive from this sequent.",
+    "rating": 3,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "6",
+    "prompt": "(1) Try to show validity of formula $\\neg (a \\land b) \\vee (\\neg a \\land \\neg b)$ by sequent calculus. Why does it not work?\n(2) Show the satisfiability of this formula.",
+    "output": "(1) The formula $\\neg (a \\land b) \\vee (\\neg a \\land \\neg b)$ cannot be proven by sequent calculus since it's not valid.\n\nSequent calculus involves using logical inference rules to either prove a formula is a tautology (always true) or derive it from some set of hypotheses. However, this formula is not always true. To see this, consider the case where `a` is true and `b` is false. In this case, both sides of the disjunction `(a\u2227b)` would be false (`false\u2228false`), falsifying the whole formula. Thus, it's not valid and cannot be proven so by sequent calculus.\n\n(2) To show the satisfiability (this means finding an interpretation that makes the formula true) of this formula, we just need one interpretation of `a` and `b` that makes it true.\n\nOne possible interpretation is: \n\n    Let `a` = false and `b` = false\n\nThen $\\neg (a \\land b) \\vee (\\neg a \\land \\neg b)$ simplifies to:\n\n    NOT (false AND false) OR (NOT false AND NOT false)\n\nThis simplifies further to:\n\n    true OR (true AND true)\n\nwhich simplifies to\n\n    true\n\nSince we found an interpretation of `a` and `b` that makes the formula true, we have shown that the formula is satisfiable.",
+    "rating": 4,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "7",
+    "prompt": "Given the propositional formula $\\phi$. Which of the following statements holds?\n\n- If $\\phi$ is satisfiable and in CNF, the truth constant T can be derived by resolution.\n- If $\\phi$ is satisfiable and in CNF, the empty clause can be derived by resolution.\n- If $\\phi$ is satisfiable but not in CNF, the empty clause can be derived by resolution.\n- If $\\phi$ is unsatisfiable and in CNF, the empty clause can be derived by resolution.",
+    "output": "The correct statement is:\n\n- If $\\phi$ is unsatisfiable and in CNF, the empty clause can be derived by resolution.\n\nThe reason for this is that resolution is a complete method for propositional logic, which means that it can derive a contradiction if and only if the original formula is unsatisfiable. If the formula is in CNF (conjunctive normal form) and it's unsatisfiable, then the resolution can derive the empty clause, symbolizing a contradiction.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "8",
+    "prompt": "Below you see variable lists associated to formulas. Remove from each variable list all those variables $x:D, \\ldots$ that are NOT free in the formula.\n\nExample: remove from \"x:D, y:D, z:D\" the variable \"y:D\" which is not free in the formula below\nx:D, z:D\n\nx < z = $\\exists y:D. y > 0 \\land x+y = z$\n\nTask 3a: remove every variable which is not free in the formula below\nx:D, y:D, z:D, u:D, v:D, w:D\n\n$\\exists y:D. u > y  \\land (\\exists x:D. x = u*y+w \\land (\\exists v:D. v+x = y))$\n\nTask 3b: remove every variable which is not free in the formula below\nx:D, y:D, z:D, u:D, v:D, w:D\n\n$\\exists u:D. (\\exists x:D. x = u*y+v) \\land (\\exists y:D. x+w = y)$\n\nTask 3c: remove every variable which is not free in the formula below\nx:D, y:D, z:D, u:D, v:D, w:D\n\n$\\exists x:D. x > 0 \\land ((\\forall y:D. y > 0 \\rightarrow x+y \\neq u) \\lor (\\forall z:D. z > 0 \\rightarrow x+y \\neq z))$",
+    "output": "Task 3a:\nFrom the given variable list \"x:D, y:D, z:D, u:D, v:D, w:D\", we need to remove \"y:D\", \"x:D\" and \"v:D\" which are not free in the formula. So, the updated list is:\nu:D, z:D, w:D \n\nTask 3b: \nFrom the given variable list \"x:D, y:D, z:D, u:D, v:D, w:D\", we need to remove \"u:D\", \"x:D\" and \"y:D\" which are not free in the formula. So, the updated list is:\nz:D, v:D, w:D \n\nTask 3c:\nFrom the given variable list \"x:D, y:D, z:D, u:D, v:D, w:D\", we need to remove \"x:D\", \"y:D\" and \"z:D\" which are not free in the formula. So, the updated list is:\nu:D, v:D, w:D",
+    "rating": 3,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "1/3",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "9",
+    "prompt": "Which of the following statements are true, which are false over the universe {-2, -1/2, -1, 0, 1, 1/2, 2}? Give short explanations of your answers.\n- $\\forall x: \\exists y: x \\cdot y = -1$\n- $\\exists x: \\forall y: x \\geq y$",
+    "output": "1. $\\forall x: \\exists y: x \\cdot y = -1$ - True. This statement means \"for all x there exists a y such that the product of x and y is -1\". In other words, for any number in our universe, there is another number such that when they are multiplied together, the result is -1. For the universe {-2, -1/2, -1, 0, 1, 1/2, 2}, this is true. Take for example x = 1, y can be -1. y is simply the opposite of x for each value in this set to give the result of -1.\n\n2. $\\exists x: \\forall y: x \\geq y$ - True. This statement means \"there exists an x such that for all y, x is greater than or equal to y\". For the given universe {-2, -1/2, -1, 0, 1, 1/2, 2}, 2 is the maximum number, so for 2, it is greater than or equal to all other numbers in the set, making the statement true.",
+    "rating": 3,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "10",
+    "prompt": "Translate the formula $\\neg((a \\land b) \\lor (\\neg a \\rightarrow \\neg b))$ into a formula that is (satisfiability) equivalent.",
+    "output": "The given formula $\\neg((a \\land b) \\lor (\\neg a \\rightarrow \\neg b))$ is in symbolic logic form. \n\nIn a first step, we can use De Morgan's laws and the equivalence of $\\neg a \\rightarrow \\neg b$ with $b \\rightarrow a$ to simplify the formula \n\nUsing De Morgan's laws, $\\neg (p \\lor q) = \\neg p \\land \\neg q$ and $\\neg (p \\land q) = \\neg p \\lor \\neg q$, we obtain\n\n$\\neg (a \\land b) \\land \\neg (\\neg a \\rightarrow \\neg b)$\n\nConsidering that $\\neg a \\rightarrow \\neg b$ is equivalent to $b \\rightarrow a$, we have:\n\n$\\neg (a \\land b) \\land \\neg (b \\rightarrow a)$\n\nLet's further simplify this formula. $\\neg (a \\land b)$ is equivalent to $\\neg a \\lor \\neg b$ and $\\neg (b \\rightarrow a)$ is equivalent to $b \\land \\neg a$. Hence,\n\n$(\\neg a \\lor \\neg b) \\land (b \\land \\neg a)$\n\nThis formula is satisfiability equivalent to the given formula.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "question_id": "1",
+    "prompt": "Given the propositional formula $\\psi := ((a \\lor \\neg b \\lor c) \\land (\\neg a \\lor b \\lor c) \\land (a \\lor \\neg b \\lor \\neg c) \\land (\\neg a \\lor \\neg b \\lor c) \\land (\\neg a \\lor  b \\lor \\neg c))$. Which of the following assignments satisfy $\\psi$?\n- $\\neg a, b, \\neg c$\n- $a, b, c$\n- $\\neg a, \\neg b, \\neg c$\n- $a, \\neg b, c$",
+    "output": "The propositional formula $\\psi$ can be satisfied by the following assignments:\n\n* $\\neg a, b, \\neg c$\n* $a, \\neg b, c$\n\nTo satisfy the formula, the first and third disjuncts must be true, and the second and fourth disjuncts must be false. \n\nTherefore, the correct options are:\n\n* $\\neg a, b, \\neg c$\n* $a, \\neg b, c$",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "2",
+    "prompt": "Show the truth tables of the following formulas:\n- $(a \\lor b) \\land \\neg(a \\lor b)$\n- $\\neg\\neg(a \\rightarrow a) \\lor (a \\land (\\neg b \\lor c \\lor d))$\n- $((\\neg(a \\lor b) \\land (a \\lor \\neg b)) \\leftrightarrow (a \\leftrightarrow b)$",
+    "output": "Sure! Here are the truth tables for the three formulas:\n\n1. $(a \\lor b) \\land \\neg(a \\lor b)$\n\n| a | b | (a \u2228 b) | \u00ac(a \u2228 b) | (a \u2228 b) \u2227 \u00ac(a \u2228 b) |\n| --- | --- | --- | --- | --- |\n| T | T | T | F | F |\n| T | F | T | F | F |\n| F | T | T | F | F |\n| F | F | F | F | T |\n\n2. $\\neg\\neg(a \\to a) \\lor (a \\land (\\neg b \\lor c \\lor d))$\n\n| a | b | c | d | $\\neg\\neg(a \\to a)$ | $(a \\land (\\neg b \\lor c \\lor d))$ |\n| --- | --- | --- | --- | --- | --- |\n| T | T | T | T | T | T |\n| T | T | T | F | T | T |\n| T | T | F | T | T | F |\n| T | F | T | T | F | T |\n| T | F | F | F | F | F |\n| F | T | T | T | F | T |\n| F | T | T | F | F | T |\n| F | T | F | F | F | F |\n| F | F | T | T | F | T |\n| F | F | T | F | F | F |\n| F | F | F | F | F | F |\n\n3. $((\\neg(a \\lor b) \\land (a \\lor \\neg b)) \\leftrightarrow (a \\leftrightarrow b)$\n\n| a | b | $\\neg(a \\lor b)$ | $a \\lor \\neg b$ | $(a \\lor \\neg b) \\leftrightarrow (a \\leftrightarrow b)$ |\n| --- | --- | --- | --- | --- |\n| T | T | F | T | T |\n| T | F | F | T | F |\n| F | T | T | F | F |\n| F | F | F | F | T |\n\nI hope this helps! Let me know if you have any questions.",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "3",
+    "prompt": "Show that $(a \\land b) \\lor \\neg(c \\land d)$ and $(a \\lor \\neg c \\lor \\neg d) \\land (b \\lor \\neg c \\lor \\neg d)$ are equivalent.",
+    "output": "Sure! To show that $(a \\land b) \\lor \\neg(c \\land d)$ and $(a \\lor \\neg c \\lor \\neg d) \\land (b \\lor \\neg c \\lor \\neg d)$ are equivalent, we can use the following steps:\n\n1. $(a \\land b) \\lor \\neg(c \\land d) \\equiv (a \\lor \\neg c) \\land (b \\lor \\neg d)$ (by De Morgan's laws)\n2. $(a \\lor \\neg c) \\land (b \\lor \\neg d) \\equiv (a \\lor \\neg c \\lor \\neg d) \\land (b \\lor \\neg c \\lor \\neg d)$ (by the associative property of conjunction)\n3. $(a \\lor \\neg c \\lor \\neg d) \\land (b \\lor \\neg c \\lor \\neg d) \\equiv (a \\lor \\neg c) \\land (b \\lor \\neg d)$ (by the commutative property of conjunction)\n\nTherefore, we have shown that $(a \\land b) \\lor \\neg(c \\land d)$ and $(a \\lor \\neg c \\lor \\neg d) \\land (b \\lor \\neg c \\lor \\neg d)$ are logically equivalent.",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "4",
+    "prompt": "Start with the Limboole formula:\n\n(c | !a | !d | e) & \n(c | !d | e | !b) & \n(!b | !d | a | e) & \n(d | !e | a | !b) & \n(b | !c | d | !e) & \n(b | e | a | d) & \n(c | a | d | !e) & \n(!d | !e | b | a) & \n(!d | b | !c | e) & \n(!e | !a | d | !c) & \n(!b | a | !c | !d) & \n(!a | d | c | e) & \n(!c | e | !b | !d) & \n(!c | !a | d | b) & \n(e | !d | !b | !c) & \n(!c | !e | d | b) & \n(b | !d | e | !c) & \n(b | d | !e | a) & \n(e | !d | !b | !a)\n\nGet a satisfying assignment for that formula with Limboole. Write down this solution and then conjunct its negation with the formula to get a new formula which does not have the solution found before. Now get another solution of the modified formula and proceed the same way until the formula becomes unsatisfiable. Count the number of solutions you found.\n\nHere is the README from Limboole:\n This is a simple boolean calculator. It reads a boolean formula and checks whether it is valid. In case '-s' is specified satisfiability is checked instead of validity (tautology).\n Language\n The input format has the following syntax in BNF:\n( [ ... ] means optional, { ... } means repeated arbitrary many times)\n\nexpr ::= iff\niff ::= implies { '<->' implies }\nimplies ::= or [ '->' or | '<-' or ]\nor ::= and { '|' and }\nand ::= not { '&' not }\nnot ::= basic | '!' not\nbasic ::= var | '(' expr ')'\n\nand 'var' is a string over letters, digits and the following characters:\n- \\_ . \\[ \\] $ @\nThe last character of 'var' should be different from '-'.",
+    "output": "Sure, I can help you with that. The Limboole formula you provided is a CNF (Conjunctive Normal Form) formula. To satisfy the formula, we need to find a truth assignment that makes the formula evaluate to true.\n\nHere's the first step of the algorithm:\n\n1. (c | !a | !d | e) & (c | !d | e | !b)\n\nWe can satisfy this step by assigning:\n\n* c = true\n* a = false\n* d = false\n* e = true\n* b = false\n\nNow, we need to conjunct the negation of this assignment with the formula to get a new formula. The negation of the assignment is:\n\n* c = false\n* a = true\n* d = true\n* e = false\n* b = true\n\nThe new formula is:\n\n(c | !a | !d | e) & (c | !d | e | !b) & (!b | !d | a | e)\n\nWe can satisfy this formula by assigning:\n\n* c = false\n* a = true\n* d = true\n* e = false\n* b = true\n\nWe can repeat this process by conjuncting the negation of the current assignment with the formula to get a new formula, and then finding a satisfying assignment for the new formula. We can continue doing this until the formula becomes unsatisfiable.\n\nHere's the second step of the algorithm:\n\n1. (c | !a | !d | e) & (c | !d | e | !b) & (!b | !d | a | e)\n\nWe can satisfy this step by assigning:\n\n* c = false\n* a = true\n* d = true\n* e = false\n* b = true\n\nThe negation of this assignment is:\n\n* c = true\n* a = false\n* d = false\n* e = true\n* b = false\n\nThe new formula is:\n\n(c | !a | !d | e) & (c | !d | e | !b) & (!b | !d | a | e) & (!c | !e | d | b)\n\nWe can satisfy this formula by assigning:\n\n* c = false\n* a = true\n* d = true\n* e = false\n* b = true\n\nWe can continue this process until we find a satisfying assignment for the formula. The number of solutions we found is 4.\n\nHere are the assignments we found:\n\n1. c = true, a = false, d = false, e = true, b = false\n2. c = false, a = true, d = true, e = false, b = true\n3. c = false, a = true, d = false, e = true, b = false\n4. c = true, a = false, d = true, e = false, b = true\n\nIt's worth noting that the last assignment is the negation of the first assignment, and the second and third assignments are the negations of each other.",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "5",
+    "prompt": "Show the resolution proof of formula $(x \\vee y) \\land (\\neg x \\vee y) \\land (x \\vee \\neg y) \\land (\\neg x \\vee \\neg y)$",
+    "output": "The formula can be simplified as follows:\n\n$$(x \\vee y) \\land (\\neg x \\vee y) \\land (x \\vee \\neg y) \\land (\\neg x \\vee \\neg y)$$\n\n$$\\equiv (x \\vee y) \\land (x \\vee \\neg y) \\land (\\neg x \\vee y) \\land (\\neg x \\vee \\neg y)$$\n\n$$\\equiv (x \\vee y) \\land (\\neg x \\vee y) \\land (x \\vee \\neg y) \\land (\\neg x \\vee \\neg y)$$\n\n$$\\equiv (x \\vee y) \\land (x \\vee \\neg y) \\land (\\neg x \\vee y) \\land (\\neg x \\vee \\neg y)$$\n\nThe formula is a tautology, which means it is always true regardless of the values of $x$ and $y$.\n\nTherefore, the resolution proof is simply the chain of equalities above, which shows that the formula is a tautology.",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "6",
+    "prompt": "Prove by resolution that the formula is indeed unsatisfiable.\n\n( b | x | !d ) &\n( x | !y | b ) &\n( !x | b | !y ) &\n( !y | !a | !z ) &\n( c | a | !d ) &\n( z ) &\n( !c ) &\n( a | !z | y ) &\n( y | !b | x ) &\n( !b | !d | !x ) &\n( d | x | !b ) &\n( !x | !y | !b ) &\n( !a | d | c ) &\n( b | y | !x ) &\n( b | !x | !d )",
+    "output": "To prove the given formula unsatisfiable by resolution, we can use the following steps:\n\nStep 1:\n\n( b | x | !d ) \n( x | !y | b )\n\nResolve (b | x | !d) and (x | !y | b) to get:\n\n!b | !x | !d | !y | b\n\nStep 2:\n\n( !x | b | !y ) \n( !y | !a | !z )\n\nResolve (!x | b | !y) and (!y | !a | !z) to get:\n\n!b | !x | !d | !y | b | !a | !z\n\nStep 3:\n\n( c | a | !d ) \n( z )\n\nResolve (c | a | !d) and (z) to get:\n\n!c | a | !d | z\n\nStep 4:\n\n( !c | !z | y ) \n( y | !b | x )\n\nResolve (!c | !z | y) and (y | !b | x) to get:\n\n!c | !z | y | !b | x\n\nStep 5:\n\n( !b | !d | !x ) \n( d | x | !b )\n\nResolve (!b | !d | !x) and (d | x | !b) to get:\n\n!b | !d | !x | d | x | !b\n\nStep 6:\n\n( !x | !y | !b ) \n( !a | d | c )\n\nResolve (!x | !y | !b) and (!a | d | c) to get:\n\n!x | !y | !b | !a | d | c\n\nStep 7:\n\n( b | y | !x ) \n( b | !x | !d )\n\nResolve (b | y | !x) and (b | !x | !d) to get:\n\n!b | !x | !d | y | !x | !d\n\nStep 8:\n\n( !b | !d | !x ) \n( !x | !y | !b )\n\nResolve (!b | !d | !x) and (!x | !y | !b) to get:\n\n!b | !d | !x | !x | !y | !b\n\nNow, we have reached a contradiction, as we have both !b and b in the same clause. Therefore, the given formula is unsatisfiable.",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "7",
+    "prompt": "Below you see various formulas in which the outermost logical operation is the negation connective \u00ac. For each formula give a logically equivalent formula in which \u00ac is only applied to atomic formulas (i.e., \"push the negation inside as much as possible\").\n\\begin{verbatim}\n\nN means the set of natural numbers in the following. \n\nExample: \u00ac \u2200x:N[2]. p[x] -> \u2203y:N[2]. q[x][y]\n\nSolution: \u2203x:N[2]. p[x] \u2227 \u2200y:N[2]. \u00ac q[x][y]\n\nTask 5a: push the negation inside\n\u00ac \u2200x:N[2]. p[x] -> (q[x][x] \u2228 \u2203y:N[2]. q[x][y] \u2227 p[y])\n\nTask 5b: push the negation inside\n\u00ac ((\u2203x:N[2]. p[x]) \u2227 (\u2200x:N[2]. \u2203y:N[2]. p[y] \u2227 \n(q[x][y] \u2228 q[y][x])))\n\\end{verbatim}",
+    "output": "Task 5a: The logically equivalent formula with the negation pushed inside is:\n\n\u00ac \u2200x:N[2]. p[x] \u2194 \u00ac(q[x][x] \u2228 \u2203y:N[2]. q[x][y] \u2227 p[y])\n\nTask 5b: The logically equivalent formula with the negation pushed inside is:\n\n\u00ac ((\u2203x:N[2]. p[x]) \u2227 (\u2200x:N[2]. \u2203y:N[2]. p[y] \u2227 (q[x][y] \u2228 q[y][x]))) \u2194 \u00ac(\u2203x:N[2]. p[x] \u2227 \u2200x:N[2]. \u2203y:N[2]. p[y] \u2227 (q[x][y] \u2228 q[y][x]))\n\nExplanation:\nIn task 5a, we can push the negation inside by using De Morgan's laws and the fact that \u00ac(p \u2227 q) \u2194 \u00acp \u2228 \u00acq. So, \u00ac \u2200x:N[2]. p[x] \u2194 \u00ac(q[x][x] \u2228 \u2203y:N[2]. q[x][y] \u2227 p[y]).\n\nIn task 5b, we can push the negation inside by using the fact that \u00ac(p \u2227 q) \u2194 \u00acp \u2228 \u00acq and \u00ac(p \u2228 q) \u2194 \u00acp \u2227 \u00acq. So, \u00ac((\u2203x:N[2]. p[x]) \u2227 (\u2200x:N[2]. \u2203y:N[2]. p[y] \u2227 (q[x][y] \u2228 q[y][x]))) \u2194 \u00ac(\u2203x:N[2]. p[x] \u2227 \u2200x:N[2]. \u2203y:N[2]. p[y] \u2227 (q[x][y] \u2228 q[y][x]))).",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "8",
+    "prompt": "Apply BCP until fixpoint on the following formulas:\n- $(\\neg a \\lor b) \\land (\\neg a \\lor \\neg b) \\land a$\n- $(a \\lor b \\lor c \\lor d) \\land (\\neg a) \\land (\\neg c \\lor \\neg d) \\land (a \\lor c \\lor \\neg d) \\land (c \\lor \\neg b) \\land \\neg c$",
+    "output": "Formula 1:\n\n BC Phoapply till fixpoint:\n\n* Negation normalization:\n$(\\neg a \\lor b) \\land (\\neg a \\lor \\neg b) \\land a$\nBecomes:\n$(\\neg a \\lor b) \\land (\\neg a \\lor \\neg b) \\land \\neg\\neg a$\n\n* Double negation elimination:\n$(\\neg a \\lor b) \\land (\\neg a \\lor \\neg b) \\land \\neg\\neg a$\nBecomes:\n$(\\neg a \\lor b) \\land (\\neg a \\lor \\neg b)$\n\n* Associative law:\n$(\\neg a \\lor b) \\land (\\neg a \\lor \\neg b)$\nBecomes:\n$(\\neg a \\lor \\neg b) \\lor (b \\lor \\neg b)$\n\n* Identity law:\n$(\\neg a \\lor \\neg b) \\lor (b \\lor \\neg b)$\nBecomes:\n$true$\n\nTherefore, the fixed point is $true$.\n\nFormula 2:\n\nBC Phoapply till fixpoint:\n\n* Negation normalization:\n$(a \\lor b \\lor c \\lor d) \\land (\\neg a) \\land (\\neg c \\lor \\neg d) \\land (a \\lor c \\lor \\neg d) \\land (c \\lor \\neg b) \\land \\neg c$\nBecomes:\n$(a \\lor b \\lor c \\lor d) \\land \\neg a \\land \\neg c \\lor \\neg d \\land a \\lor c \\lor \\neg d \\land c \\lor \\neg b \\land \\neg c$\n\n* Double negation elimination:\n$(a \\lor b \\lor c \\lor d) \\land \\neg a \\land \\neg c \\lor \\neg d \\land a \\lor c \\lor \\neg d \\land c \\lor \\neg b \\land \\neg c$\nBecomes:\n$(a \\lor b \\lor c \\lor d) \\land \\neg a \\land \\neg c \\lor \\neg d \\land a \\lor c \\lor \\neg d$\n\n* Associative law:\n$(a \\lor b \\lor c \\lor d) \\land \\neg a \\land \\neg c \\lor \\neg d \\land a \\lor c \\lor \\neg d$\nBecomes:\n$(a \\lor b \\lor c \\lor d) \\lor (\\neg a \\land \\neg c \\lor \\neg d \\land a \\lor c \\lor \\neg d)$\n\n* Distributive law:\n$(a \\lor b \\lor c \\lor d) \\lor (\\neg a \\land \\neg c \\lor \\neg d \\land a \\lor c \\lor \\neg d)$\nBecomes:\n$((a \\lor b \\lor c \\lor d) \\lor \\neg a) \\land (\\neg c \\lor \\neg d \\land a \\lor c \\lor \\neg d)$\n\n* Identity law:\n((a \\lor b \\lor c \\lor d) \\lor \\neg a) \\land (\\neg c \\lor \\neg d \\land a \\lor c \\lor \\neg d)\nBecomes:\n$true$\n\nTherefore, the fixed point is $true$.",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "9",
+    "prompt": "Start with the Limboole formula:\n\n(c & !a & !d & e) | \n(c & !d & e & !b) | \n(!b & !d & a & e) | \n(d & !e & a & !b) | \n(b & !c & d & !e) | \n(b & e & a & d) | \n(c & a & d & !e) | \n(!d & !e & b & a) | \n(!d & b & !c & e) | \n(!e & !a & d & !c) | \n(!b & a & !c & !d) | \n(!a & d & c & e) | \n(!c & e & !b & !d) | \n(!c & !a & d & b) | \n(e & !d & !b & !c) | \n(!c & !e & d & b) | \n(b & !d & e & !c) | \n(b & d & !e & a) | \n(e & !d & !b & !a)\n\nTranslate the formula into a formula in conjunctive normal form (CNF) by introducing new labels (approach 2). Introduce one label per line. For line $n$, introduce label $l_n$. When you replaced all the conjunctions by labels, you will get a big clause. For this clause no further label has to be introduced (but it is not wrong if you do it).",
+    "output": "The Limboole formula is: \n\n(c & !a & !d & e) | \n(c & !d & e & !b) | \n(!b & !d & a & e) | \n(d & !e & a & !b) | \n(b & !c & d & !e) | \n(b & e & a & d) | \n(c & a & d & !e) | \n(!d & !e & b & a) | \n(!d & b & !c & e) | \n(!e & !a & d & !c) | \n(!b & a & !c & !d) | \n (!a & d & c & e) | \n (!c & e & !b & !d) | \n (!c & !a & d & b) | \n (e & !d & !b & !c) | \n (!c & !e & d & b) | \n (b & !d & e & !c) | \n (b & d & !e & a) | \n (e & !d & !b & !a)\n\nTo translate this formula into conjunctive normal form (CNF), we can introduce new labels (approach 2) as follows:\n\n1. (c \u2227 !a \u2227 !d \u2227 e) | \nLabel 1: l1 = c \u2227 !a \u2227 !d \u2227 e\n2. (c \u2227 !d \u2227 e \u2227 !b) | \nLabel 2: l2 = c \u2227 !d \u2227 e \u2227 !b\n3. (!b \u2227 !d \u2227 a \u2227 e) | \nLabel 3: l3 = !b \u2227 !d \u2227 a \u2227 e\n4. (d \u2227 !e \u2227 a \u2227 !b) | \nLabel 4: l4 = d \u2227 !e \u2227 a \u2227 !b\n5. (b \u2227 !c \u2227 d \u2227 !e) | \nLabel 5: l5 = b \u2227 !c \u2227 d \u2227 !e\n6. (b \u2227 e \u2227 a \u2227 d) | \nLabel 6: l6 = b \u2227 e \u2227 a \u2227 d\n7. (c \u2227 a \u2227 d \u2227 !e) | \nLabel 7: l7 = c \u2227 a \u2227 d \u2227 !e\n8. (!d \u2227 !e \u2227 b \u2227 a) | \nLabel 8: l8 = !d \u2227 !e \u2227 b \u2227 a\n9. (!d \u2227 b \u2227 !c \u2227 e) | \nLabel 9: l9 = !d \u2227 b \u2227 !c \u2227 e\n10. (!e \u2227 !a \u2227 d \u2227 !c) | \nLabel 10: l10 = !e \u2227 !a \u2227 d \u2227 !c\n11. (!b \u2227 a \u2227 !c \u2227 !d) | \nLabel 11: l11 = !b \u2227 a \u2227 !c \u2227 !d\n12. (e \u2227 !d \u2227 !b \u2227 !c) | \nLabel 12: l12 = e \u2227 !d \u2227 !b \u2227 !c\n13. (!c \u2227 !e \u2227 d \u2227 b) | \nLabel 13: l13 = !c \u2227 !e \u2227 d \u2227 b\n14. (b \u2227 !d \u2227 e \u2227 a) | \nLabel 14: l14 = b \u2227 !d \u2227 e \u2227 a\n15. (e \u2227 !d \u2227 !b \u2227 !a) | \nLabel 15: l15 = e \u2227 !d \u2227 !b \u2227 !a\n\n Now we have the following clause: \n\n(l1 \u2228 l2 \u2228 l3 \u2228 l4 \u2228 l5 \u2228 l6 \u2228 l7 \u2228 l8 \u2228 l9 \u2228 l10 \u2228 l11 \u2228 l12 \u2228 l13 \u2228 l14 \u2228 l15)\n\nThis clause is in conjunctive normal form (CNF) since it is a disjunction of conjunctions.",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "10",
+    "prompt": "Transform the following formula to an equivalent formula in negation normal form (NNF):\n$$ ( (\\neg x \\rightarrow (y \\lor z)) \\leftrightarrow (x \\lor \\neg y)) $$",
+    "output": "The formula in negation normal form (NNF) is:\n$$ \\neg x \\lor \\neg y \\lor z $$\n\nExplanation:\nTo convert the given formula to NNF, we first distributive law to expand the scope of \u00acx:\n$$ ((\\neg x \\lor y) \\lor z) \\leftrightarrow (x \\lor \\neg y) $$\nThen, using the Commutative Law, we move y to the left:\n$$ (y \\lor (\\neg x \\lor z)) \\leftrightarrow (x \\lor \\neg y) $$\nNext, we use the Associative Law to group the literals:\n$$ (y \\lor \\neg x) \\lor z \\leftrightarrow (x \\lor \\neg y) $$\nFinally, we simplify the left side using the Negation Introduction rule:\n$$ \\neg x \\lor y \\lor z \\leftrightarrow (x \\lor \\neg y) $$\nSo, the formula in NNF is:\n$$ \\neg x \\lor \\neg y \\lor z $$",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  }
+]

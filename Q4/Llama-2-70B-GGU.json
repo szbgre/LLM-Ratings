@@ -1,0 +1,102 @@
+[
+  {
+    "question_id": "1",
+    "prompt": "Find a formula over variables a, b, c that has exactly five models.",
+    "output": "Find a formula over variables a, b, c that has exactly five models.\n\nThis problem is equivalent to finding a non-trivial irreducible polynomial equation of degree 5 over the reals that factors into linear factors.\n\nThe irreducible polynomial equation x^5 + a_4x^4 + a_3x^3 + a_2x^2 + a_1x + a_0 = 0 can be factored as (x + b_1)(x + b_2)(x + b_3)(x + b_4)(x + b_5) = 0, where the b_i are distinct real numbers.\n\nTherefore, we need to find five distinct real numbers b_1, b_2, b_3, b_4, b_5 such that the polynomial equation (x + b_1)(x + b_2)(x + b_3)(x + b_4)(x + b_5) = 0 factors into linear factors.\n\nThis is equivalent to finding five distinct real numbers b_1, b_2, b_3, b_4, b_5 that satisfy the equation:\nb_1 + b_2 + b_3 + b_",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:32:47"
+  },
+  {
+    "question_id": "2",
+    "prompt": "Represent the formulas\n- (\u00aca \u2228 \u00acb) \u2227 (a \u2228 b)\n- \u00ac(a \u2194 b)\n by equivalent formulas using only \u00ac and \u2228 operators. Argue that the formulas are indeed equivalent.",
+    "output": "Represent the formulas\n- (\u00aca \u2228 \u00acb) \u2227 (a \u2228 b)\n- \u00ac(a \u2194 b)\n by equivalent formulas using only \u00ac and \u2228 operators. Argue that the formulas are indeed equivalent.\nAnswer:\nThe given formulas can be represented as follows using only \u00ac and \u2228 operators:\n\n1. - (\u00aca \u2228 \u00acb) \u2227 (a \u2228 b) = \u00ac(a \u2227 b) \u2228 \u00ac(\u00aca \u2227 \u00acb)\n\nEquivalence:\n\n* LHS: \u00aca \u2228 \u00acb = \u00ac(a \u2227 b) (De Morgan's law)\n* RHS: a \u2228 b = \u00ac(\u00aca \u2227 \u00acb) (De Morgan's law)\n\nTherefore, the formulas are equivalent.\n2. - \u00ac(a \u2194 b) = \u00ac(a \u2228 b) \u2227 \u00ac(\u00aca \u2228 \u00acb)\n\nEquivalence:\n\n* LHS: a \u2194 b = (a \u2228 b) \u2227 (\u00aca \u2228 \u00acb) (definition of bi-implication)\n* RHS: \u00ac(a \u2194 b) = \u00ac((a \u2228 b) \u2227 (\u00aca \u2228 \u00acb)) =",
+    "rating": 4,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:35:20"
+  },
+  {
+    "question_id": "3",
+    "prompt": "Show that formula \n- \u00ac((a \u2227 b) \u2228 (\u00aca \u2227 \u00acb)) \n- (a \u2227 b) \u2228 (\u00aca \u2227 \u00acb) \n is (un)satisfiable by using the sequent calculus.",
+    "output": "Show that formula \n- \u00ac((a \u2227 b) \u2228 (\u00aca \u2227 \u00acb)) \n- (a \u2227 b) \u2228 (\u00aca \u2227 \u00acb) \n is (un)satisfiable by using the sequent calculus.\n\nI've tried to use the following rules:\n\n* (cut) \n* (tensor) \n* (neg) \n* (and) \n* (or) \n* (id) \n* (weakening)\n\nBut I don't know how to apply them properly. Could anyone help me?\n\nAnswer: Sure! Let's break down the formula and reason about it step by step using the sequent calculus.\n\nWe have:\n\n- \u00ac((a \u2227 b) \u2228 (\u00aca \u2227 \u00acb))\n\nFirst, let's apply negation introduction (neg) to get:\n\n- a \u2227 b \u2228 \u00aca \u2227 \u00acb\n\nNow, we can use the tensor rule (tensor) to simplify the formula:\n\n- a \u2227 b \u2228 \u00aca \u2227 \u00acb\n\nThis gives us:\n\n- (a \u2227 b) \u2228 (\u00aca \u2227 \u00acb)\n\nGreat! We've simplified the formula to a conjunction of two disjunctive clauses. Now, let'",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:37:55"
+  },
+  {
+    "question_id": "4",
+    "prompt": "Assume we are trying to prove validity of formula \u03c6 by using the sequent calculus. At some point, we obtain the sequent a, b, c, \u00acd \u22a2 e. What does this tell us about \u03c6?\n- a, b, c, \u00acd, \u00ace is a counter-model\n- Nothing of interest about \u03c6\n- a, b, c, \u00acd, \u00ace is a model of \u03c6",
+    "output": "Assume we are trying to prove validity of formula \u03c6 by using the sequent calculus. At some point, we obtain the sequent a, b, c, \u00acd \u22a2 e. What does this tell us about \u03c6?\n- a, b, c, \u00acd, \u00ace is a counter-model\n- Nothing of interest about \u03c6\n- a, b, c, \u00acd, \u00ace is a model of \u03c6\n- a, b, c, d, \u00ace is a counter-model\n- \u03c6 is valid\n- There is no conclusion that can be drawn about \u03c6.",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:38:37"
+  },
+  {
+    "question_id": "5",
+    "prompt": "Below you see the definitions of two formulas (F1) and (F2) interpreted over the domain (N[2] = {0,1,2}) with unary predicates (p) and (q). For each of these formula pairs answer the following questions:\n\n- Is (F2) a logical consequence of (F1)?\n- (Only if the answer to the previous question is \"no\") Give a counterexample by two predicates (p) and (q) for which (F1) is true and (F2) is false. These predicates may be simply written in the form of two sequences\n\n (p: p(0), p(1), p(2)) and (q: q(0), q(1), q(2))\n\nthat list the truth value of p and q for each argument value of the predicate. \n\n- Example:\n\n(F1): \\forall x:N[2].  p[x] \\lor q[x]\n(F2): \\forall x:N[2].  p[x] \\lor (\\forall x:N[2]. q[x])\n\nSolution:\nIs F2 a logical consequence of F1? False.\n\nCounterexample:\n- p: false, true, false\n- q: false, false, false\n\n- Task 4a: Is F2 a logical consequence of F1?\n(F1): (\u00ac\u2203x:N[2]. p[x] \u2194 q[x]) \\land (\u2203x:N[2]. p[x]) \\land (\u2203x:N[2]. q[x])\n(F2): (\u2203x:N[2]. \u00acp[x]) \\land \u2203x:N[2]. \u00acq[x])\n\n- Task 4b: Is F2 a logical consequence of F1?\n(F1): (\u2200x:N[2]. \u00acp[x] \u2192 \u00acq[x]) \\land (\u2200x:N[2]. \u00acq[x])\n(F2): (\u2203x:N[2]. \u00acp[x]) \\land \u00acq[x])\n",
+    "output": "Below you see the definitions of two formulas (F1) and (F2) interpreted over the domain (N[2] = {0,1,2}) with unary predicates (p) and (q). For each of these formula pairs answer the following questions:\n\n- Is (F2) a logical consequence of (F1)?\n- (Only if the answer to the previous question is \"no\") Give a counterexample by two predicates (p) and (q) for which (F1) is true and (F2) is false. These predicates may be simply written in the form of two sequences\n\n (p: p(0), p(1), p(2)) and (q: q(0), q(1), q(2))\n\nthat list the truth value of p and q for each argument value of the predicate. \n\n- Example:\n\n(F1): \\forall x:N[2].  p[x] \\lor q[x]\n(F2): \\forall x:N[2].  p[x] \\lor (\\forall x:N[2]. q[x])\n\nSolution:\nIs F2 a logical consequence of F1? False.\n\nCounterexample:\n- p: false, true, false\n- q: false, false, false\n\n- Task 4a: Is F2 a logical consequence of F1?\n(F1): (\u00ac\u2203x:N[2]. p[x] \u2194 q[x]) \\land (\u2203x:N[2]. p[x]) \\land (\u2203x:N[2]. q[x])\n(F2): (\u2203x:N[2]. \u00acp[x]) \\land \u2203x:N[2]. \u00acq[x])\n\n- Task 4b: Is F2 a logical consequence of F1?\n(F1): (\u2200x:N[2]. \u00acp[x] \u2192 \u00acq[x]) \\land (\u2200x:N[2]. \u00acq[x])\n(F2): (\u2203x:N[2]. \u00acp[x]) \\land \u00acq[x])\n\n- Task 4c: Is F2 a logical consequence of F1?\n(F1): (\u2200x:N[2]. p[x] \u2192 q[x]) \\land (\u2200x:N[2]. \u00acq[x])\n(F2): \u00acp[a] \\land \u00acp[b] \\land \u00acp[c]\n\n- Task 4d: Is F2 a logical consequence of F1?\n(F1): (\u2200x:N[2]. p[x] \u2192 q[x]) \\land (\u2200x:N[2]. \u00acq[x])\n(F2): (\u2203x:N[2]. p[x]) \\land (\u2203x:N[2]. \u00acp[x])",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:42:40"
+  },
+  {
+    "question_id": "6",
+    "prompt": "Generate a formal proof for the formula (A(t,s) \u2227 (A(t,s) \u2228 B(s,u,t))) \u2194 A(t,s) using the sequent rules for predicate logic.",
+    "output": "Generate a formal proof for the formula (A(t,s) \u2227 (A(t,s) \u2228 B(s,u,t))) \u2194 A(t,s) using the sequent rules for predicate logic.\n\nI have tried this by using the following steps:\n1. assumption: A(t,s) \u2227 (A(t,s) \u2228 B(s,u,t))\n2. assumption: \u00acA(t,s) \u2228 B(s,u,t) (from step 1 and De Morgan's laws)\n3. \u00acA(t,s) \u2228 (A(t,s) \u2227 B(s,u,t)) (from step 2 and distribution)\n4. \u00acA(t,s) \u2228 A(t,s) \u2227 \u00acB(s,u,t) (from step 3 and De Morgan's laws)\n5. \u00acA(t,s) \u2228 \u00acB(s,u,t) (from step 4 and simplification)\n6. A(t,s) \u2194 \u00acB(s,u,t) (from steps 1-5 and contraposition)\n7. \u00acB(s,u,t) \u2194 A(t,s) (from step 6 and contra",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:45:13"
+  },
+  {
+    "question_id": "7",
+    "prompt": "Prove \u00ac(z \u223c x \u2227 z \u223c y) under the assumptions \u00ac(x \u223c y), z \u223c x \u2192 x \u223c z, and x \u223c z \u2192 (z \u223c y \u2192 x \u223c y) using the sequent rules for predicate logic.",
+    "output": "Prove \u00ac(z \u223c x \u2227 z \u223c y) under the assumptions \u00ac(x \u223c y), z \u223c x \u2192 x \u223c z, and x \u223c z \u2192 (z \u223c y \u2192 x \u223c y) using the sequent rules for predicate logic.\n\nHint: The proof should consist of a series of applications of the sequent rules, with each step justified by a comment in parentheses.\n\n(Note: \"x \u223c y\" means \"x is similar to y\" and \"z \u223c x\" means \"z is similar to x\".)\n\nAnswer:\n\n1. \u00ac(x \u223c y) Premise\n2. z \u223c x Premise\n3. z \u223c x \u2192 x \u223c z Inference (modus ponens)\n4. x \u223c z Premise\n5. x \u223c z \u2192 (z \u223c y \u2192 x \u223c y) Inference (modus ponens)\n6. \u00ac(z \u223c y) Conclusion\n7. \u00ac(z \u223c y) \u2227 \u00ac(x \u223c y) Conclusion\n8. \u00ac(z \u223c x \u2227 z \u223c y) \u2194 \u00ac(z \u223c x) \u2228 \u00ac(z \u223c y) Tautology (De Morgan's laws)\n9. \u00ac(z \u223c x) \u2228 \u00ac(z \u223c",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:47:48"
+  },
+  {
+    "question_id": "8",
+    "prompt": "Using the sequent rules for predicate logic, generate a formal proof (proof tree) of the statement (\u2203x: \u2200y: p(x,y)) \u2192 (\u2200y: \u2203x: p(x,y))",
+    "output": "Using the sequent rules for predicate logic, generate a formal proof (proof tree) of the statement (\u2203x: \u2200y: p(x,y)) \u2192 (\u2200y: \u2203x: p(x,y)) using only the following axioms and inference rules:\n1. Axiom schema for first-order logic:\n    - All instances of the form \u2200x: P(x) \u2192 Q(x), where P and Q are formulas in which x does not occur free, can be used as axioms.\n2. Axiom schema for predicate logic with identity:\n    - All instances of the form \u2200x: P(x) \u2192 \u2203y: p(y,x), where P is a formula in which x does not occur free and p is a binary predicate symbol, can be used as axioms.\n3. Modus ponens (MP):\n    - From \u0393, P \u2192 Q, infer \u0393, Q.\n4. Necessitation (NEC):\n    - From \u0393, P, infer \u0393, \u2200x: P(x).\n5. Universal instantiation (UI):\n    - From \u0393, \u2200x: P(x), infer \u0393, P(a), where a is a term that does not occur free in \u0393 or P.\n6. Existential instantiation",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:50:21"
+  },
+  {
+    "question_id": "9",
+    "prompt": "Prove $$\n\\forall n \\in \\mathbb{N}: \\sum_{k=1}^{n} k^{2}=\\frac{n \\cdot(n+1) \\cdot(2 n+1)}{6}\n$$",
+    "output": "Prove $$\n\\forall n \\in \\mathbb{N}: \\sum_{k=1}^{n} k^{2}=\\frac{n \\cdot(n+1) \\cdot(2 n+1)}{6}\n$$\nI tried to solve it using mathematical induction but I failed. Can you help me?\n\nComment: Sure! Let's try to prove it using mathematical induction.\n\nBase case:\nLet $n=1$. Then, the sum is $\\sum_{k=1}^{1} k^{2} = 1^2 = 1$. This agrees with the formula $\\frac{1 \\cdot(1+1) \\cdot(2 \\cdot 1 + 1)}{6} = 1$.\n\nInductive step:\nAssume that the statement is true for some $n \\in \\mathbb{N}$, i.e.,\n$$\\sum_{k=1}^{n} k^{2} = \\frac{n \\cdot(n+1) \\cdot(2 n+1)}{6}$$\nWe need to show that this implies that the statement is true for $n+1$ as well. That is, we need to show that\n$$\\sum_{k=1}^{n+1} k^{2} = \\frac{(n+1) \\cdot(n+2) \\cdot(2(n+1)+1)}{6",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:52:54"
+  },
+  {
+    "question_id": "10",
+    "prompt": "Prove \u2200n \u2208 \u2115 : n \u2265 4 \u2192 2\u207f < n!",
+    "output": "Prove \u2200n \u2208 \u2115 : n \u2265 4 \u2192 2\u207f < n!\n\nI tried using strong induction but it didn't work out. Here is my attempt:\n\nBase case: n = 4\n\n2^4 = 16\n4! = 24\n16 < 24\n\nInductive step: assume that the statement is true for some arbitrary value of k, i.e., 2^k < k!\n\nWe need to show that 2^(k+1) < (k+1)!\n\nUsing the formula for the factorial, we have:\n(k+1)! = k! \\* (k+1)\n\nSince 2^k < k!, we can write:\n2^(k+1) = 2 \\* 2^k < 2 \\* k! = k! \\* 2\n\nTherefore, we have:\n2^(k+1) < (k+1)!\n\nThis completes the inductive step.\n\nHowever, this proof doesn't work because it's not true that 2^4 < 4!. In fact, 2^4 = 16 > 4! = 2",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:55:21"
+  }
+]

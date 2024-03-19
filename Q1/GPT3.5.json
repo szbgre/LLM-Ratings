@@ -1,0 +1,102 @@
+[
+  {
+    "question_id": "1",
+    "prompt": "Identify the truth constants, literals, variables, and clauses of the following formula:\n$$\n(x \\vee y) \\wedge(z \\vee \\neg y \\vee T) \\wedge(x)\n$$",
+    "output": "In the formula, we have the following truth constants, literals, variables, and clauses:\n\nTruth constants: T (which represents true)\n\nLiterals: x, y, z, \u00acy (which represents negation of y), T \n\nVariables: x, y, z\n\nClauses: \n- (x \u2228 y)\n- (z \u2228 \u00acy \u2228 T)\n- (x)",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "#easy",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "2",
+    "prompt": "The following formula is given\n$$\n\\bigwedge_{i=1}^2 \\bigvee_{j=1}^3 l_{i j}\n$$\n\nExpand this formula and write it down with $\\vee$ and $\\wedge$. Furthermore, write it down in set notation.",
+    "output": "The given formula\n$$\n\\bigwedge_{i=1}^2 \\bigvee_{j=1}^3 l_{i j}\n$$\ncan be expanded as follows:\n$$\n(l_{11} \\vee l_{12} \\vee l_{13}) \\wedge (l_{21} \\vee l_{22} \\vee l_{23})\n$$\n\nIn set notation, the formula can be represented as:\n$$\n\\left\\{ l_{11}, l_{12}, l_{13} \\right\\} \\cap \\left\\{ l_{21}, l_{22}, l_{23} \\right\\}\n$$",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "#easy",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "3",
+    "prompt": "The empty clause is ...\n- (a) ... always true.\n- (b) ... always false.\n- (c) ... true if the rest of the formula is true.",
+    "output": "The correct answer is (b) ... always false.\n\nAn empty clause represents a contradiction or inconsistency in the formula. It is a clause with no literals, meaning it asserts that both a proposition and its negation are true, which is logically impossible. Therefore, an empty clause is always false.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "#easy",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "4",
+    "prompt": "How many models does the empty clause have?",
+    "output": "An empty clause is a logical statement that is always false. Therefore, it does not have any models.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "#easy",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "5",
+    "prompt": "What do the rules of De Morgan say?\n- (a) $\\neg(a \\vee b) \\Leftrightarrow(\\neg a \\wedge \\neg b)$\n- (b) $\\neg(a \\wedge b) \\Leftrightarrow(\\neg a \\vee \\neg b)$\n- (c) $\\neg(a \\vee b) \\Leftrightarrow(\\neg a \\wedge \\neg b)$\n- (d) $a \\wedge(b \\vee a) \\Leftrightarrow a$",
+    "output": "The rules of De Morgan state that:\n- (a) The negation of the disjunction of two propositions is equivalent to the conjunction of the negations of the individual propositions: $\\neg(a \\vee b) \\Leftrightarrow(\\neg a \\wedge \\neg b)$\n- (b) The negation of the conjunction of two propositions is equivalent to the disjunction of the negations of the individual propositions: $\\neg(a \\wedge b) \\Leftrightarrow(\\neg a \\vee \\neg b)$\n- (c) This is the same as rule (a), so it is incorrect.\n- (d) This is not a De Morgan rule. It simplifies to $a$, which states that if $a$ is true, then the entire expression is true.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "Typo in (c), however correctly interpreted.",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "6",
+    "prompt": "Which of the following formulas are equivalent to $((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow$ $(x \\vee \\neg y)) ?$\n- (a) $((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow(x \\vee \\neg y)) \\wedge((\\neg x \\rightarrow(z \\vee y)) \\leftrightarrow(\\neg y \\vee x))$\n- (b) $((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow(x \\vee \\neg y)) \\vee \\perp$\n- (c) $\\neg \\neg((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow(x \\vee \\neg y))$\n- (d) $((\\neg x \\rightarrow(y \\vee z)) \\rightarrow(x \\vee \\neg y)) \\wedge((\\neg x \\rightarrow(z \\vee y)) \\vee \\neg(\\neg y \\vee x))$\n- (e) $((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow(x \\vee \\neg y)) \\wedge a$",
+    "output": "The correct answer is option (a) $((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow(x \\vee \\neg y)) \\wedge((\\neg x \\rightarrow(z \\vee y)) \\leftrightarrow(\\neg y \\vee x))$. \n\nTo see why, let's break down the given formula and each option:\n\nThe given formula is $((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow(x \\vee \\neg y))$.\n\nOption (a): The formula in option (a) is the conjunction (AND) of two equivalent formulas: $((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow(x \\vee \\neg y))$ and $((\\neg x \\rightarrow(z \\vee y)) \\leftrightarrow(\\neg y \\vee x))$. This means that both of these formulas must be true for the entire formula in option (a) to be true.\n\nOption (b): The formula in option (b) is the disjunction (OR) of the given formula and $\\perp$, where $\\perp$ represents a contradiction or a false statement. In this case, regardless of the truth value of the given formula, the presence of $\\perp$ makes the entire formula false.\n\nOption (c): The formula in option (c) is the double negation of the given formula. While the double negation does not change the truth value of a formula, it is not equivalent to the given formula in its original form.\n\nOption (d): The formula in option (d) is the conjunction of two formulas: $((\\neg x \\rightarrow(y \\vee z)) \\rightarrow(x \\vee \\neg y))$ and $((\\neg x \\rightarrow(z \\vee y)) \\vee \\neg(\\neg y \\vee x))$. The second formula in this option is not equivalent to the given formula, so the entire option is not equivalent.\n\nOption (e): The formula in option (e) is the conjunction of the given formula and the variable $a$. Since $a$ is not defined and its truth value is unknown, we cannot determine the equivalence of this option.\n\nTherefore, the only option that is equivalent to the given formula is option (a) $((\\neg x \\rightarrow(y \\vee z)) \\leftrightarrow(x \\vee \\neg y)) \\wedge((\\neg x \\rightarrow(z \\vee y)) \\leftrightarrow(\\neg y \\vee x))$.",
+    "rating": 3,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "Only identified 1/4 correctly (worse than GPT4).",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "7",
+    "prompt": "Write the following expression in standard prefix form (no conditions under quantifier, every quantifier binds exactly one variable, etc.) and generate a syntax tree for it:\n$$\n\\forall x: \\exists y>2 x: \\sqrt{\\frac{1}{x+y}} \\geq x^2\n$$",
+    "output": "In standard prefix form, the expression becomes:\n$$\n\\geq(\\sqrt{(\\div(1, + (x, y))), (\\pow(x, 2)})\n$$\n\nThe syntax tree for the expression is as follows:\n\n```\n                  \u2265\n                 / \\\n               /     \\\n           \u221a         ^\n          / \\       / \\\n         /   \\     x   2\n        /     \\\n      \u00f7         +\n     / \\       / \\\n    1   +     x   y\n         \n\n\n```",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "Missing quantifiers, wrong syntax tree.",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "8",
+    "prompt": "Let $p$ be a unary predicate. Express the statements using the standard quantifiers of first-order logic.\n(a) there exists at most one value $x$ such that $p(x)$ holds.\n(b) there exists exactly one value $x$ such that $p(x)$ holds.",
+    "output": "(a) $\\exists x\\, \\forall y\\, (p(x) \\land p(y) \\rightarrow x = y)$\n(b) $\\exists x\\, (p(x) \\land \\forall y\\, (p(y) \\rightarrow y = x))$",
+    "rating": 4,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "# ? Is (a) correct",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "9",
+    "prompt": "Below you see some formulas without parentheses. Write in each of these formulas a separate pair of parentheses () around EVERY logical connective and around EVERY quantifier such that the formula preserves its meaning.\n\nThus the number of parenthesis pairs () to be added equals the total number of connectives and quantifiers.\n\nExample: add 3 pairs of parentheses () to \"\u00acp[x] \u2227 q[x] \u2192 r[x]\" Solution: (((\u00acp[x]) \u2227 q[x]) \u2192 r[x])\n\nTask 1a: add here 4 pairs of parentheses ()\np[x] \u2227 q[x] \u2192 \u00acr[x] \u2228 (s[x]\n\nTask 1b: add here 5 pairs of parentheses ()\np[x] \u2227 \u00ac \u2200y:D. q[y] \u2194 p[y] \u2227 r[x][y]\n\nTask 1c: \n\u2203y:D. p[x] \u2192 r[x][y] \u2227 \u00acr[y][x] \u2228 \u2200z:D. p[z] \u2192 r[y][z]\n",
+    "output": "Task 1a: (((p[x] \u2227 q[x]) \u2192 \u00acr[x]) \u2228 (s[x]))\n\nTask 1b: (p[x] \u2227 (\u00ac(\u2200y:D. q[y]) \u2194 (p[y] \u2227 r[x][y])))\n\nTask 1c: \u2203y:D. ((p[x] \u2192 r[x][y]) \u2227 (\u00acr[y][x])) \u2228 (\u2200z:D. (p[z] \u2192 r[y][z]))",
+    "rating": 3,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "1a correct, 1b wrong, 1c wrong (worse than GPT4)",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "10",
+    "prompt": "Let \\(S, S_0, \\ldots, S_5\\) be sequents and consider the following proof tree:\n\\begin{enumerate}\n  \\item[a)] Give a forward style presentation of this proof.\n  \\item[b)] Give a backward style presentation of this proof.\n\\end{enumerate}\n\\begin{prooftree}\n    \\AxiomC{}\n    \\RightLabel{$R_2$}\n    \\UnaryInfC{$S_4$}\n    \\AxiomC{}\n    \\RightLabel{$R_4$}\n    \\UnaryInfC{$S_5$}\n    \\RightLabel{$R_5$}\n    \\BinaryInfC{$S_1$}\n    \\AxiomC{}\n    \\RightLabel{$R_6$}\n    \\UnaryInfC{$S_2$}\n    \\AxiomC{}\n    \\RightLabel{$R_4$}\n    \\UnaryInfC{$S_5$}\n    \\RightLabel{$R_1$}\n    \\BinaryInfC{$S_1$}\n    \\RightLabel{$R_7$}\n    \\UnaryInfC{$S_3$}\n    \\RightLabel{$R_3$}\n    \\BinaryInfC{$S$}\n\\end{prooftree}",
+    "output": "a) Here is the forward style presentation of the proof:\n\n1. \\(S_4\\) (from \\(R_2\\))\n2. \\(S_5\\) (from \\(R_4\\))\n3. \\(S_1\\) (from \\(R_5\\) using 1 and 2)\n4. \\(S_2\\) (from \\(R_6\\))\n5. \\(S_5\\) (from \\(R_4\\))\n6. \\(S_1\\) (from \\(R_1\\) using 4 and 5)\n7. \\(S_3\\) (from \\(R_7\\) using 3 and 6)\n8. \\(S\\) (from \\(R_3\\) using 3 and 7)\n\nb) Here is the backward style presentation of the proof:\n\n1. \\(S\\) (assumption)\n2. \\(S_3\\) (from \\(R_3\\) using 1 and 3)\n3. \\(S_1\\) (from \\(R_7\\) using 1 and 2)\n4. \\(S_1\\) (from \\(R_1\\) using 4 and 5)\n5. \\(S_5\\) (from \\(R_4\\) using 4)\n6. \\(S_2\\) (from \\(R_6\\) using 4)\n7. \\(S_1\\) (from \\(R_5\\) using 3 and 6)\n8. \\(S_5\\) (from \\(R_4\\) using 2)\n9. \\(S_4\\) (from \\(R_2\\) using 8)\n10. \\(S_1\\) (from \\(R_5\\) using 9 and 5)\n11. \\(S\\) (from \\(R_3\\) using 3 and 10)",
+    "rating": 4,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "Correct, but unclear structure.",
+    "timestamp": "2024-02-08"
+  }
+]

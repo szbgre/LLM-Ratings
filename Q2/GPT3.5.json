@@ -1,0 +1,102 @@
+[
+  {
+    "question_id": "1",
+    "prompt": "Given formula $\\psi:=(x) \\wedge(\\neg y \\vee \\neg z) \\wedge(\\neg x \\vee y \\vee z)$.\n- (a) $(\\neg x \\vee y \\vee z)$ is a clause of size three.\n- (b) $\\neg y$ is a literal.\n- (c) $y$ is a literal.\n- (d) $\\psi$ is a conjunction of clauses.\n- (e) $\\psi$ is a disjunction of clauses.\n- (f) $(\\neg x \\vee y \\vee z)$ is a conjunction of three literals.\n- (g) $(\\neg y \\vee \\neg z)$ is a literal.",
+    "output": "(a) False. $(\\neg x \\vee y \\vee z)$ is a clause of size three, not two.\n\n(b) True. $\\neg y$ is a literal because it is a simple atomic proposition or its negation.\n\n(c) True. $y$ is a literal because it is a simple atomic proposition or its negation.\n\n(d) False. $\\psi$ is a conjunction of clauses, not a conjunction of literals.\n\n(e) False. $\\psi$ is a conjunction of clauses, not a disjunction of clauses.\n\n(f) False. $(\\neg x \\vee y \\vee z)$ is a clause of size three, not a conjunction of three literals.\n\n(g) False. $(\\neg y \\vee \\neg z)$ is a clause, not a literal.",
+    "rating": 3,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "2",
+    "prompt": "How many models does a tautology have given that 10 different variables occur in the formula?\n- (a) 1024\n- (b) 0\n- (c) 2048\n- (d) 2^12\n- (e) 1",
+    "output": "The correct answer is (c) 2048.\n\nA tautology is a logical formula that is true under every possible assignment of truth values to its variables. In this case, there are 10 different variables, each with two possible truth values (true or false). Therefore, there are 2^10 = 1024 different possible assignments of truth values to the variables.\n\nSince a tautology must be true under every possible assignment, all 1024 assignments must evaluate the formula to true. However, for each assignment, there is another assignment in which all the truth values of the variables are negated, resulting in the same formula being true. Therefore, there are a total of 2 * 1024 = 2048 models for the tautology.",
+    "rating": 3,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "3",
+    "prompt": "Given formula $(a \\vee b) \\vee c$, find a semantically equivalent formula that contains no other Boolean connectives than negation and implication.",
+    "output": "To find a semantically equivalent formula that contains only negation and implication, we can use De Morgan's law as well as the logical equivalence $p \\vee q \\equiv \\neg (\\neg p \\wedge \\neg q)$.\n\nUsing De Morgan's law, we can rewrite $(a \\vee b) \\vee c$ as $\\neg (\\neg (a \\vee b) \\wedge \\neg c)$.\nThen, using the logical equivalence, we can further simplify the formula as $\\neg ((\\neg a \\wedge \\neg b) \\wedge \\neg c)$.\nFinally, we can use De Morgan's law again to express the formula in terms of negation and implication: $\\neg (\\neg (\\neg a \\wedge \\neg b) \\vee \\neg c)$.\n\nThus, a semantically equivalent formula that contains only negation and implication is $\\neg (\\neg (\\neg a \\wedge \\neg b) \\vee \\neg c)$.",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "Contains no implication.",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "4",
+    "prompt": "Semantic Properties \\begin{tabular}{|c|c|c||c|c|c|c|} \\hline $x$ & $y$ & $z$ & $\\phi_{1}$ & $\\phi_{2}$ & $\\phi_{3}$ & $\\phi_{4}$ \\\\ \\hline 0 & 0 & 0 & 0 & 0 & 1 & 1 \\\\ 0 & 0 & 1 & 0 & 1 & 0 & 1 \\\\ 0 & 1 & 0 & 0 & 0 & 1 & 1 \\\\ 0 & 1 & 1 & 0 & 0 & 0 & 1 \\\\ 1 & 0 & 0 & 0 & 0 & 1 & 1 \\\\ 1 & 0 & 1 & 0 & 0 & 0 & 1 \\\\ 1 & 1 & 0 & 0 & 0 & 1 & 1 \\\\ 1 & 1 & 1 & 0 & 0 & 1 & 1 \\\\ \\hline \\end{tabular} Assign the following properties to the formulas $\\phi_{1}, \\phi_{2}, \\phi_{3}, \\phi_{4}$ : satisfiable, unsatisfiable, valid, refutable.",
+    "output": "To determine the properties of the formulas $\\phi_{1}, \\phi_{2}, \\phi_{3}, \\phi_{4}$, we need to analyze their truth values under different assignments of $x, y,$ and $z$.\n\nFor $\\phi_{1}$:\n- When $x = 0, y = 0, z = 0$: $\\phi_{1}$ is true.\n- When $x = 0, y = 0, z = 1$: $\\phi_{1}$ is true.\n- When $x = 0, y = 1, z = 0$: $\\phi_{1}$ is true.\n- When $x = 0, y = 1, z = 1$: $\\phi_{1}$ is true.\n- When $x = 1, y = 0, z = 0$: $\\phi_{1}$ is true.\n- When $x = 1, y = 0, z = 1$: $\\phi_{1}$ is true.\n- When $x = 1, y = 1, z = 0$: $\\phi_{1}$ is true.\n- When $x = 1, y = 1, z = 1$: $\\phi_{1}$ is true.\n\nSince $\\phi_{1}$ is true for every possible assignment of $x, y,$ and $z$, it is a valid formula.\n\nFor $\\phi_{2}$:\n- When $x = 0, y = 0, z = 0$: $\\phi_{2}$ is true.\n- When $x = 0, y = 0, z = 1$: $\\phi_{2}$ is true.\n- When $x = 0, y = 1, z = 0$: $\\phi_{2}$ is true.\n- When $x = 0, y = 1, z = 1$: $\\phi_{2}$ is false.\n- When $x = 1, y = 0, z = 0$: $\\phi_{2}$ is true.\n- When $x = 1, y = 0, z = 1$: $\\phi_{2}$ is true.\n- When $x = 1, y = 1, z = 0$: $\\phi_{2}$ is true.\n- When $x = 1, y = 1, z = 1$: $\\phi_{2}$ is true.\n\nSince $\\phi_{2}$ is false for one possible assignment of $x, y,$ and $z$, it is refutable.\n\nFor $\\phi_{3}$:\n- When $x = 0, y = 0, z = 0$: $\\phi_{3}$ is false.\n- When $x = 0, y = 0, z = 1$: $\\phi_{3}$ is true.\n- When $x = 0, y = 1, z = 0$: $\\phi_{3}$ is false.\n- When $x = 0, y = 1, z = 1$: $\\phi_{3}$ is false.\n- When $x = 1, y = 0, z = 0$: $\\phi_{3}$ is false.\n- When $x = 1, y = 0, z = 1$: $\\phi_{3}$ is true.\n- When $x = 1, y = 1, z = 0$: $\\phi_{3}$ is false.\n- When $x = 1, y = 1, z = 1$: $\\phi_{3}$ is false.\n\nSince $\\phi_{3}$ is true for two possible assignments of $x, y,$ and $z$, it is satisfiable.\n\nFor $\\phi_{4}$:\n- When $x = 0, y = 0, z = 0$: $\\phi_{4}$ is true.\n- When $x = 0, y = 0, z = 1$: $\\phi_{4}$ is true.\n- When $x = 0, y = 1, z = 0$: $\\phi_{4}$ is true.\n- When $x = 0, y = 1, z = 1$: $\\phi_{4}$ is true.\n- When $x = 1, y = 0, z = 0$: $\\phi_{4}$ is true.\n- When $x = 1, y = 0, z = 1$: $\\phi_{4}$ is true.\n- When $x = 1, y = 1, z = 0$: $\\phi_{4}$ is true.\n- When $x = 1, y = 1, z = 1$: $\\phi_{4}$ is true.\n\nSince $\\phi_{4}$ is true for every possible assignment of $x, y,$ and $z$, it is valid.\n\nTherefore, the properties of the given formulas are as follows:\n- $\\phi_{1}$ is valid.\n- $\\phi_{2}$ is refutable.\n- $\\phi_{3}$ is satisfiable.\n- $\\phi_{4}$ is valid.",
+    "rating": 3,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "5",
+    "prompt": "Given sequent $\\vdash (\\neg x \\vee (y \\land (\\neg z \\vee w)) \\vee \\neg x)$\n\n- No rule applicable.\n- P-$\\vee$ \n- P-$\\land$\n- A-$\\land$\n- A-$\\vee$\n",
+    "output": "Based on the given sequent $\\vdash (\\neg x \\vee (y \\land (\\neg z \\vee w)) \\vee \\neg x)$, let's go through the applicable rules step by step:\n\n1. P-$\\vee$: This rule allows us to introduce a $\\vee$ by creating two branches, each with one of the disjuncts as an assumption. However, we already have a $\\vee$ in the given sequent, so this rule is not applicable here.\n\n2. P-$\\land$: This rule allows us to introduce a $\\land$ by adding both conjuncts as separate assumptions. However, we already have a $\\land$ in the given sequent, so this rule is not applicable here.\n\n3. A-$\\land$: This rule allows us to eliminate a $\\land$ by using both conjuncts as separate subproofs and then combining them. However, we don't have any $\\land$ that we can eliminate in the given sequent, so this rule is not applicable here.\n\n4. A-$\\vee$: This rule allows us to eliminate a $\\vee$ by using a subproof for each of the disjuncts and then combining them. However, we don't have any $\\vee$ that we can eliminate in the given sequent, so this rule is not applicable here.\n\nIn this case, none of the rules are applicable, so we cannot make any further deductions from the given sequent in its current form.",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "6",
+    "prompt": "(1) Try to show validity of formula $\\neg (a \\land b) \\vee (\\neg a \\land \\neg b)$ by sequent calculus. Why does it not work?\n(2) Show the satisfiability of this formula.",
+    "output": "(1) To show the validity of the formula $\\neg (a \\land b) \\vee (\\neg a \\land \\neg b)$ using sequent calculus, we can assume the negation of the formula as the antecedent and try to derive a contradiction. However, the formula is not valid, so it is not possible to derive a contradiction. \n\nTo see why, consider the interpretation where $a$ is true and $b$ is false. In this case, the formula simplifies to $\\neg (true \\land false) \\vee (\\neg true \\land \\neg false)$. Evaluating this, we get $\\neg false \\vee (false \\land true)$, which simplifies to $true \\vee false$. Since this is true, the formula is not contradictory and therefore not valid.\n\n(2) To show the satisfiability of the formula $\\neg (a \\land b) \\vee (\\neg a \\land \\neg b)$, we need to find an interpretation that makes the formula true. A simple interpretation that satisfies the formula is when both $a$ and $b$ are false. \n\nWhen $a$ is false and $b$ is false, the formula becomes $\\neg (false \\land false) \\vee (\\neg false \\land \\neg false)$. Simplifying further, we get $\\neg false \\vee (true \\land true)$, which is equivalent to $true \\vee true$, and this evaluates to $true$. Hence, the formula is satisfiable.",
+    "rating": 4,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "7",
+    "prompt": "Given the propositional formula $\\phi$. Which of the following statements holds?\n\n- If $\\phi$ is satisfiable and in CNF, the truth constant T can be derived by resolution.\n- If $\\phi$ is satisfiable and in CNF, the empty clause can be derived by resolution.\n- If $\\phi$ is satisfiable but not in CNF, the empty clause can be derived by resolution.\n- If $\\phi$ is unsatisfiable and in CNF, the empty clause can be derived by resolution.",
+    "output": "The statement that holds is: If $\\phi$ is unsatisfiable and in CNF, the empty clause can be derived by resolution.\n\nResolution is a proof technique used to derive new clauses from a set of clauses by combining them according to a specific resolution rule. The empty clause is a special clause that represents a contradiction or inconsistency.\n\nIf $\\phi$ is unsatisfiable and in CNF, it means that there is no assignment of truth values to the variables that would satisfy $\\phi$. In other words, every possible assignment leads to a contradiction. By applying the resolution rule repeatedly to the clauses in $\\phi$, it is possible to derive the empty clause, which represents a contradiction.\n\nHowever, if $\\phi$ is satisfiable (regardless of whether it is in CNF or not), it means that there exists at least one assignment of truth values to the variables that satisfies $\\phi$. In this case, it is not possible to derive the empty clause using resolution, as the empty clause represents a contradiction.\n\nTherefore, the correct statement is that if $\\phi$ is unsatisfiable and in CNF, the empty clause can be derived by resolution.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "8",
+    "prompt": "Below you see variable lists associated to formulas. Remove from each variable list all those variables $x:D, \\ldots$ that are NOT free in the formula.\n\nExample: remove from \"x:D, y:D, z:D\" the variable \"y:D\" which is not free in the formula below\nx:D, z:D\n\nx < z = $\\exists y:D. y > 0 \\land x+y = z$\n\nTask 3a: remove every variable which is not free in the formula below\nx:D, y:D, z:D, u:D, v:D, w:D\n\n$\\exists y:D. u > y  \\land (\\exists x:D. x = u*y+w \\land (\\exists v:D. v+x = y))$\n\nTask 3b: remove every variable which is not free in the formula below\nx:D, y:D, z:D, u:D, v:D, w:D\n\n$\\exists u:D. (\\exists x:D. x = u*y+v) \\land (\\exists y:D. x+w = y)$\n\nTask 3c: remove every variable which is not free in the formula below\nx:D, y:D, z:D, u:D, v:D, w:D\n\n$\\exists x:D. x > 0 \\land ((\\forall y:D. y > 0 \\rightarrow x+y \\neq u) \\lor (\\forall z:D. z > 0 \\rightarrow x+y \\neq z))$",
+    "output": "Task 3a: remove every variable which is not free in the formula below\nx:D, y:D, z:D, u:D, v:D, w:D\n\n$\\exists y:D. u > y  \\land (\\exists x:D. x = u*y+w \\land (\\exists v:D. v+x = y))$\n\nThe variables that are not free in this formula are:\nu:D, v:D\n\nTherefore, the updated variable list is:\nx:D, y:D, z:D, w:D\n\nTask 3b: remove every variable which is not free in the formula below\nx:D, y:D, z:D, u:D, v:D, w:D\n\n$\\exists u:D. (\\exists x:D. x = u*y+v) \\land (\\exists y:D. x+w = y)$\n\nThe variables that are not free in this formula are:\ny:D\n\nTherefore, the updated variable list is:\nx:D, z:D, u:D, v:D, w:D\n\nTask 3c: remove every variable which is not free in the formula below\nx:D, y:D, z:D, u:D, v:D, w:D\n\n$\\exists x:D. x > 0 \\land ((\\forall y:D. y > 0 \\rightarrow x+y \\neq u) \\lor (\\forall z:D. z > 0 \\rightarrow x+y \\neq z))$\n\nThe variables that are not free in this formula are:\nu:D\n\nTherefore, the updated variable list is:\nx:D, y:D, z:D, v:D, w:D",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "0/3",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "9",
+    "prompt": "Which of the following statements are true, which are false over the universe {-2, -1/2, -1, 0, 1, 1/2, 2}? Give short explanations of your answers.\n- $\\forall x: \\exists y: x \\cdot y = -1$\n- $\\exists x: \\forall y: x \\geq y$",
+    "output": "The statements can be analyzed as follows:\n\nStatement 1: $\\forall x: \\exists y: x \\cdot y = -1$\n\nThis statement is false. To show this, we can go through each element in the given universe and check if there exists a corresponding element, such that their product is equal to -1.\n\nIf we take $x = -2$, there is no y that satisfies the equation $-2 \\cdot y = -1$, as any value of $y$ multiplied by $-2$ will result in a positive number.\n\nIf we take $x = -\\frac{1}{2}$, there is no y that satisfies the equation $-\\frac{1}{2} \\cdot y = -1$, as any value of $y$ multiplied by $-\\frac{1}{2}$ will result in a negative number.\n\nIf we take $x = -1$, then $y = 1$ satisfies the equation $-1 \\cdot 1 = -1$. Therefore, this is a valid solution.\n\nIf we take $x = 0$, there is no y that satisfies the equation $0 \\cdot y = -1$, as any value of $y$ multiplied by 0 will result in 0.\n\nIf we take $x = 1$, then $y = -1$ satisfies the equation $1 \\cdot -1 = -1$. Therefore, this is a valid solution.\n\nIf we take $x = \\frac{1}{2}$, there is no y that satisfies the equation $\\frac{1}{2} \\cdot y = -1$, as any value of $y$ multiplied by $\\frac{1}{2}$ will result in a positive number.\n\nIf we take $x = 2$, there is no y that satisfies the equation $2 \\cdot y = -1$, as any value of $y$ multiplied by 2 will result in a positive number.\n\nSince not every value of x has a corresponding y such that their product is -1, the statement is false.\n\n\nStatement 2: $\\exists x: \\forall y: x \\geq y$\n\nThis statement is true. To show this, we need to find at least one value of x that is greater than or equal to every y in the universe.\n\nIf we take $x = 2$, we can see that $2 \\geq -2, -\\frac{1}{2}, -1, 0, 1, \\frac{1}{2}, 2$. Therefore, this statement is true.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  },
+  {
+    "question_id": "10",
+    "prompt": "Translate the formula $\\neg((a \\land b) \\lor (\\neg a \\rightarrow \\neg b))$ into a formula that is (satisfiability) equivalent.",
+    "output": "To find an equivalent formula, we can simplify and rearrange the given formula step by step. \n\n1. Applying De Morgan's law to the inner negation:  \n$\\neg((a \\land b) \\lor (\\neg a \\rightarrow \\neg b)) \\equiv \\neg(a \\land b) \\land \\neg(\\neg a \\rightarrow \\neg b)$\n\n2. Applying De Morgan's law to the first negation:  \n$\\neg(a \\land b) \\land \\neg(\\neg a \\rightarrow \\neg b) \\equiv (\\neg a \\lor \\neg b) \\land ((\\neg \\neg a)\\lor (\\neg \\neg b))$\n\n3. Applying double negation:  \n$(\\neg a \\lor \\neg b) \\land ((\\neg \\neg a) \\lor (\\neg \\neg b)) \\equiv (\\neg a \\lor \\neg b) \\land (a \\lor b)$\n\n4. Simplifying using distributive law:  \n$(\\neg a \\lor \\neg b) \\land (a \\lor b) \\equiv (\\neg a \\land a) \\lor (\\neg a \\land b) \\lor (\\neg b \\land a) \\lor (\\neg b \\land b)$\n\n5. Simplifying contradictory conjunctions:  \n$(\\neg a \\land a) \\lor (\\neg a \\land b) \\lor (\\neg b \\land a) \\lor (\\neg b \\land b) \\equiv \\bot \\lor (\\neg a \\land b) \\lor (\\neg b \\land a) \\lor \\bot$\n\n6. Simplifying tautologies:  \n$\\bot \\lor (\\neg a \\land b) \\lor (\\neg b \\land a) \\lor \\bot \\equiv (\\neg a \\land b) \\lor (\\neg b \\land a)$\n\nThe final simplified and equivalent formula is $(\\neg a \\land b) \\lor (\\neg b \\land a)$.",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-08"
+  }
+]

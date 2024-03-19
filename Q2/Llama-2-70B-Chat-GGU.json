@@ -1,0 +1,102 @@
+[
+  {
+    "question_id": "1",
+    "prompt": "Given formula $\\psi:=(x) \\wedge(\\neg y \\vee \\neg z) \\wedge(\\neg x \\vee y \\vee z)$.\n- (a) $(\\neg x \\vee y \\vee z)$ is a clause of size three.\n- (b) $\\neg y$ is a literal.\n- (c) $y$ is a literal.\n- (d) $\\psi$ is a conjunction of clauses.\n- (e) $\\psi$ is a disjunction of clauses.\n- (f) $(\\neg x \\vee y \\vee z)$ is a conjunction of three literals.\n- (g) $(\\neg y \\vee \\neg z)$ is a literal.",
+    "output": "(a) True.\n(b) True.\n(c) True.\n(d) False.\n(e) False.\n(f) True.\n(g) True.\n\nExplanation:\n\n(a) The clause $\\neg x \\vee y \\vee z$ has three literals, namely $\\neg x$, $y$, and $z$.\n\n(b) $\\neg y$ is a literal because it is a negated variable.\n\n(c) $y$ is a literal because it is a variable.\n\n(d) $\\psi$ is not a conjunction of clauses because it contains the disjunction $\\vee$.\n\n(e) $\\psi$ is not a disjunction of clauses because it contains the conjunction $\\wedge$.\n\n(f) The clause $\\neg x \\vee y \\vee z$ is a conjunction of three literals.\n\n(g) The clause $\\neg y \\vee \\neg z$ is a literal because it contains two negated variables.",
+    "rating": 3,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "2",
+    "prompt": "How many models does a tautology have given that 10 different variables occur in the formula?\n- (a) 1024\n- (b) 0\n- (c) 2048\n- (d) 2^12\n- (e) 1",
+    "output": "A tautology has only one model, regardless of the number of variables in the formula. Therefore, the answer is (b) 0.",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "3",
+    "prompt": "Given formula $(a \\vee b) \\vee c$, find a semantically equivalent formula that contains no other Boolean connectives than negation and implication.",
+    "output": "Sure! The given formula $(a \\vee b) \\vee c$ can be simplified to $a \\vee (b \\vee c)$.\n\nHere's a semantically equivalent formula that contains no other Boolean connectives than negation and implication:\n\n$$\\neg(\\neg a \\wedge \\neg(b \\vee c))$$\n\nThis formula is obtained by negating the expression $\\neg a \\wedge \\neg(b \\vee c)$, which is a logically equivalent expression to $(a \\vee b) \\vee c$.\n\nI hope this helps! Let me know if you have any further questions.",
+    "rating": 3,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "4",
+    "prompt": "Semantic Properties \\begin{tabular}{|c|c|c||c|c|c|c|} \\hline $x$ & $y$ & $z$ & $\\phi_{1}$ & $\\phi_{2}$ & $\\phi_{3}$ & $\\phi_{4}$ \\\\ \\hline 0 & 0 & 0 & 0 & 0 & 1 & 1 \\\\ 0 & 0 & 1 & 0 & 1 & 0 & 1 \\\\ 0 & 1 & 0 & 0 & 0 & 1 & 1 \\\\ 0 & 1 & 1 & 0 & 0 & 0 & 1 \\\\ 1 & 0 & 0 & 0 & 0 & 1 & 1 \\\\ 1 & 0 & 1 & 0 & 0 & 0 & 1 \\\\ 1 & 1 & 0 & 0 & 0 & 1 & 1 \\\\ 1 & 1 & 1 & 0 & 0 & 1 & 1 \\\\ \\hline \\end{tabular} Assign the following properties to the formulas $\\phi_{1}, \\phi_{2}, \\phi_{3}, \\phi_{4}$ : satisfiable, unsatisfiable, valid, refutable.",
+    "output": "The properties of the formulas $\\phi_{1}, \\phi_{2}, \\phi_{3}, \\phi_{4}$ can be determined as follows:\n\n1. $\\phi_{1} = x \\land y \\land z$ is valid because it is a tautology.\n2. $\\phi_{2} = \\neg x \\lor \\neg y \\lor z$ is unsatisfiable because it is always false.\n3. $\\phi_{3} = x \\lor \\neg y \\lor z$ is satisfiable because it can be satisfied by the assignment $x = 1, y = 0, z = 1$.\n4. $\\phi_{4} = \\neg x \\lor \\neg z$ is refutable because it can be falsified by the assignment $x = 1, z = 0$.\n\nTherefore, we can assign the following properties to the formulas:\n\n* $\\phi_{1}$: valid\n* $\\phi_{2}$: unsatisfiable\n* $\\phi_{3}$: satisfiable\n* $\\phi_{4}$: refutable",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "5",
+    "prompt": "Given sequent $\\vdash (\\neg x \\vee (y \\land (\\neg z \\vee w)) \\vee \\neg x)$\n\n- No rule applicable.\n- P-$\\vee$ \n- P-$\\land$\n- A-$\\land$\n- A-$\\vee$\n",
+    "output": "The given sequent is:\n\n$$\\vdash (\\neg x \\vee (y \\land (\\neg z \\vee w)) \\vee \\neg x)$$\n\nThe rule that applies is P-$\\vee$, which allows us to drop the outermost $\\vee$ and move the negation inside the parentheses.\n\nThe derived sequent is:\n\n$$\\vdash (y \\land (\\neg z \\vee w)) \\vee \\neg x$$\n\nNow, we can apply A-$\\land$ to simplify the left-hand side of the sequent:\n\n$$\\vdash y \\land \\neg z \\vee w \\vee \\neg x$$\n\nYour turn!",
+    "rating": 4,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "6",
+    "prompt": "(1) Try to show validity of formula $\\neg (a \\land b) \\vee (\\neg a \\land \\neg b)$ by sequent calculus. Why does it not work?\n(2) Show the satisfiability of this formula.",
+    "output": "(1) The formula $\\neg (a \\land b) \\vee (\\neg a \\land \\neg b)$ cannot be proven valid using sequent calculus because it is a tautology, and tautologies are not considered valid in sequent calculus. A tautology is a statement that is always true regardless of the values assigned to its variables. In this case, the formula is a tautology because it can be simplified to $\\neg (a \\land b) \\vee \\neg (a \\land b)$, which is always true.\n\n(2) To show the satisfiability of this formula, we can provide a truth assignment that makes the formula evaluate to true. Let $a$ and $b$ be two propositional variables. We can assign $a = false$ and $b = false$. Then, we have:\n\n* $\\neg (a \\land b) = \\neg (false \\land false) = \\neg false = true$\n* $\\neg a \\land \\neg b = false \\land false = false$\n\nTherefore, the formula evaluates to $\\true \\vee false = \\true$, which is satisfiable.\n\nNote that the satisfiability of a formula does not necessarily imply its validity. A formula can be satisfiable but still be invalid if it contains logical fallacies or inconsistencies. In this case, the formula is a tautology and is considered valid, but it is not considered a valid argument because it does not convey any meaningful information.",
+    "rating": 3,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "7",
+    "prompt": "Given the propositional formula $\\phi$. Which of the following statements holds?\n\n- If $\\phi$ is satisfiable and in CNF, the truth constant T can be derived by resolution.\n- If $\\phi$ is satisfiable and in CNF, the empty clause can be derived by resolution.\n- If $\\phi$ is satisfiable but not in CNF, the empty clause can be derived by resolution.\n- If $\\phi$ is unsatisfiable and in CNF, the empty clause can be derived by resolution.",
+    "output": "The correct answer is:\n\n- If $\\phi$ is satisfiable and in CNF, the empty clause can be derived by resolution.\n\nExplanation:\n\nWhen a propositional formula $\\phi$ is satisfiable and in conjunctive normal form (CNF), it means that there exists an assignment of truth values to the variables that makes the formula evaluate to TRUE. In this case, we can derive the empty clause by resolution, which is a rule of logic that allows us to infer a clause that is a tautology (always true) from a set of clauses that are known to be true.\n\nThe other options are incorrect because:\n\n* If $\\phi$ is satisfiable but not in CNF, we cannot derive the empty clause by resolution. We would need to first convert $\\phi$ to CNF before applying resolution.\n* If $\\phi$ is unsatisfiable and in CNF, it means that there is no assignment of truth values to the variables that makes the formula evaluate to TRUE. In this case, we cannot derive the empty clause by resolution, because there is no satisfying assignment that would allow us to infer a tautology.\n* If $\\phi$ is unsatisfiable but not in CNF, we cannot derive the empty clause by resolution for the same reason as above. We would need to first convert $\\phi$ to CNF before applying resolution.",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "8",
+    "prompt": "Below you see variable lists associated to formulas. Remove from each variable list all those variables $x:D, \\ldots$ that are NOT free in the formula.\n\nExample: remove from \"x:D, y:D, z:D\" the variable \"y:D\" which is not free in the formula below\nx:D, z:D\n\nx < z = $\\exists y:D. y > 0 \\land x+y = z$\n\nTask 3a: remove every variable which is not free in the formula below\nx:D, y:D, z:D, u:D, v:D, w:D\n\n$\\exists y:D. u > y  \\land (\\exists x:D. x = u*y+w \\land (\\exists v:D. v+x = y))$\n\nTask 3b: remove every variable which is not free in the formula below\nx:D, y:D, z:D, u:D, v:D, w:D\n\n$\\exists u:D. (\\exists x:D. x = u*y+v) \\land (\\exists y:D. x+w = y)$\n\nTask 3c: remove every variable which is not free in the formula below\nx:D, y:D, z:D, u:D, v:D, w:D\n\n$\\exists x:D. x > 0 \\land ((\\forall y:D. y > 0 \\rightarrow x+y \\neq u) \\lor (\\forall z:D. z > 0 \\rightarrow x+y \\neq z))$",
+    "output": "Task 3a: remove every variable which is not free in the formula below\nx:D, y:D, z:D, u:D, v:D, w:D\n\nVariable list: x:D, y:D, z:D, u:D, v:D, w:D\n\nFree variables: x:D, y:D, z:D\n\nNon-free variables: u:D, v:D, w:D\n\nRemaining variable list: x:D, y:D, z:D\n\nTask 3b: remove every variable which is not free in the formula below\nx:D, y:D, z:D, u:D, v:D, w:D\n\nVariable list: x:D, y:D, z:D, u:D, v:D, w:D\n\nFree variables: x:D, y:D, z:D\n\nNon-free variables: u:D, v:D, w:D\n\nRemaining variable list: x:D, y:D, z:D\n\nTask 3c: remove every variable which is not free in the formula below\nx:D, y:D, z:D, u:D, v:D, w:D\n\nVariable list: x:D, y:D, z:D, u:D, v:D, w:D\n\nFree variables: x:D, y:D\n\nNon-free variables: z:D, u:D, v:D, w:D\n\nRemaining variable list: x:D, y:D\n\nPlease review the updated variable lists.",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "9",
+    "prompt": "Which of the following statements are true, which are false over the universe {-2, -1/2, -1, 0, 1, 1/2, 2}? Give short explanations of your answers.\n- $\\forall x: \\exists y: x \\cdot y = -1$\n- $\\exists x: \\forall y: x \\geq y$",
+    "output": "The first statement is false. There exists no real number y such that x \\* y = -1 for all real numbers x.\n\nThe second statement is true. For any real number x, there exists a real number y, specifically x+1, such that x \u2264 y. Therefore, the statement is true for all real numbers x.",
+    "rating": 5,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  },
+  {
+    "question_id": "10",
+    "prompt": "Translate the formula $\\neg((a \\land b) \\lor (\\neg a \\rightarrow \\neg b))$ into a formula that is (satisfiability) equivalent.",
+    "output": "Sure! The formula you provided is a bit complex, but we can break it down and rewrite it in a simpler form.\n\nFirst, let's simplify the left-hand side of the implication:\n\n$$\\neg((a \\land b) \\lor (\\neg a \\rightarrow \\neg b))$$\n\nWe can start by distributing the negation over the disjunction:\n\n$$\\neg(a \\land b) \\lor \\neg(\\neg a \\rightarrow \\neg b)$$\n\nNow, we can simplify the first conjunct:\n\n$$\\neg(a \\land b) = \\neg a \\lor \\neg b$$\n\nAnd simplify the second conjunct:\n\n$$\\neg(\\neg a \\rightarrow \\neg b) = \\neg\\neg a \\lor \\neg\\neg b$$\n\nSo, the formula becomes:\n\n$$\\neg a \\lor \\neg b \\lor \\neg\\neg a \\lor \\neg\\neg b$$\n\nNow, we can simplify the formula by removing double negations:\n\n$$a \\lor b \\lor \\neg a \\lor \\neg b$$\n\nAnd finally, we can simplify the formula further by removing the outer negation:\n\n$$a \\lor b \\lor \\neg a \\lor \\neg b = (a \\lor b) \\land (\\neg a \\lor \\neg b)$$\n\nSo, the satisfiability equivalent formula is:\n\n$$(a \\lor b) \\land (\\neg a \\lor \\neg b)$$\n\nI hope this helps! Let me know if you have any further questions.",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-24"
+  }
+]

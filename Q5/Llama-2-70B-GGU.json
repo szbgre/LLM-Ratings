@@ -1,0 +1,102 @@
+[
+  {
+    "question_id": "1",
+    "prompt": "Use a SAT encoding to show that the graph (V, E) with V = {a, b, c} and E = {(a, b), (b, c), (c, a)} cannot be colored with two colors. Test your encoding with Limboole.\n\nHere is the README from Limboole: This is a simple boolean calculator. It reads a boolean formula and checks whether it is valid. In case '-s' is specified satisfiability is checked instead of validity (tautology). Language: The input format has the following syntax in BNF: ( [ ... ] means optional, { ... } means repeated arbitrary many times) expr ::= iff iff ::= implies { '<->' implies } implies ::= or [ '->' or | '<-' or ] or ::= and { '|' and } and ::= not { '&' not } not ::= basic | '!' not basic ::= var | '(' expr ')' and 'var' is a string over letters, digits and the following characters: - _ . [ ] $ @ The last character of 'var' should be different from '-'.",
+    "output": "Use a SAT encoding to show that the graph (V, E) with V = {a, b, c} and E = {(a, b), (b, c), (c, a)} cannot be colored with two colors. Test your encoding with Limboole.\n\nHere is the README from Limboole: This is a simple boolean calculator. It reads a boolean formula and checks whether it is valid. In case '-s' is specified satisfiability is checked instead of validity (tautology). Language: The input format has the following syntax in BNF: ( [ ... ] means optional, { ... } means repeated arbitrary many times) expr ::= iff iff ::= implies { '<->' implies } implies ::= or [ '->' or | '<-' or ] or ::= and { '|' and } and ::= not { '&' not } not ::= basic | '!' not basic ::= var | '(' expr ')' and 'var' is a string over letters, digits and the following characters: - _ . [ ] $ @ The last character of 'var' should be different from '-'.\n\nHere is an example of a valid input: (a -> b) -> (b | c). This means that \"it is true that if A implies B, then either B or C is true\".\n\nThe output for this input would be \"valid\", indicating that the formula is indeed valid. If the formula contains a syntax error, an error message will be displayed.\n\nThe -s option may be used to check satisfiability instead of validity. For example: -s (a -> b) -> (b | c). This means that \"it is true that if A implies B, then either B or C is true\" and it should return \"unsatisfiable\".\n\nYou can use the following commands to test your encoding: limboole -s -f input.limboole or limboole -s -f -. The first option reads a file named \"input.limboole\", the second option reads from standard input.\n\nIn this case we want to show that the graph with V = {a, b, c} and E = {(a, b), (b, c), (c, a)} cannot be colored with two colors. We",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 13:06:26"
+  },
+  {
+    "question_id": "2",
+    "prompt": "Take this Box-Game: J I a e D C f e C G e C F D B i B A J H G I h B J e B j G F E d b e D A J c A J h f i f E i D B G E c h g d H g c j G B j g e G f A g d a h g c J i c h G C F e A J i F I h f i G A H F D i d C g c b G F a D c b i g D i G e i F a i h c E d C\n\nSolve it with limboole. The above Box-Game shows the textual representation. These you can use (but it is not required) for generating the limboole input.\n\nHere is the README from Limboole: This is a simple boolean calculator. It reads a boolean formula and checks whether it is valid. In case '-s' is specified satisfiability is checked instead of validity (tautology). Language: The input format has the following syntax in BNF: ( [ ... ] means optional, { ... } means repeated arbitrary many times) expr ::= iff iff ::= implies { '<->' implies } implies ::= or [ '->' or | '<-' or ] or ::= and { '|' and } and ::= not { '&' not } not ::= basic | '!' not basic ::= var | '(' expr ')' and 'var' is a string over letters, digits and the following characters: - _ . [ ] $ @ The last character of 'var' should be different from '-'.",
+    "output": "Take this Box-Game: J I a e D C f e C G e C F D B i B A J H G I h B J e B j G F E d b e D A J c A J h f i f E i D B G E c h g d H g c j G B j g e G f A g d a h g c J i c h G C F e A J i F I h f i G A H F D i d C g c b G F a D c b i g D i G e i F a i h c E d C\n\nSolve it with limboole. The above Box-Game shows the textual representation. These you can use (but it is not required) for generating the limboole input.\n\nHere is the README from Limboole: This is a simple boolean calculator. It reads a boolean formula and checks whether it is valid. In case '-s' is specified satisfiability is checked instead of validity (tautology). Language: The input format has the following syntax in BNF: ( [ ... ] means optional, { ... } means repeated arbitrary many times) expr ::= iff iff ::= implies { '<->' implies } implies ::= or [ '->' or | '<-' or ] or ::= and { '|' and } and ::= not { '&' not } not ::= basic | '!' not basic ::= var | '(' expr ')' and 'var' is a string over letters, digits and the following characters: - _ . [ ] $ @ The last character of 'var' should be different from '-'. Basic rules: - (iff) implies (a -> b) <-> (not a or b) - (iff) implies (a <- b) <-> (not a or not b) - (or) implies (a or b) <-> (a | b) - (and) implies (a and b) <-> (a & b) - (not) implies (not a) <-> (! a) The first character of 'var' should be different from '!' if it is not the last one. This implementation uses a simple DPLL algorithm. The solver is in the file dpll.c and it can be used as follows: $ limboole input.lp The program reads an integer n (default 3) from standard input, then reads n clauses from standard input and tries to find a solution for them. If no solution is found within 10000000 iterations, the program outputs 'no'. Otherwise it outputs 'yes' followed by the values of the variables that satisfy the clauses. For example: $ limboole -n 3 a! b! c a -> b | c a <- b | c no The input file",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 13:09:57"
+  },
+  {
+    "question_id": "3",
+    "prompt": "Translate the following natural language sentence into a first-order logic formula.\n- Every number can be written as the product of a hot and a cool number.\nHint: you may assume that all variables denote numbers (so it is not necessary to have a predicate 'is a number'). Use in your formulation unary predicates isHot(x) and isCool(x), binary function x * y, and binary predicate x = y.",
+    "output": "Translate the following natural language sentence into a first-order logic formula.\n- Every number can be written as the product of a hot and a cool number.\nHint: you may assume that all variables denote numbers (so it is not necessary to have a predicate 'is a number'). Use in your formulation unary predicates isHot(x) and isCool(x), binary function x * y, and binary predicate x = y.",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 13:10:16"
+  },
+  {
+    "question_id": "4",
+    "prompt": "We consider the domain {-2, -1, 0, 1, 2} and the formulas\n- x > 0\n- x > 0 or 0 > x\n- x > 0 and 0 > x\n- x >= 0 -> x > 0\n- x > 0 -> x >= 0\nwith the usual interpretations of the symbols.\nAnswer for each formula F the following questions:\n- Give all the assignments of values to x that make F true.\n- Is F satisfiable?\n- Is F valid?",
+    "output": "We consider the domain {-2, -1, 0, 1, 2} and the formulas\n- x > 0\n- x > 0 or 0 > x\n- x > 0 and 0 > x\n- x >= 0 -> x > 0\n- x > 0 -> x >= 0\nwith the usual interpretations of the symbols.\nAnswer for each formula F the following questions:\n- Give all the assignments of values to x that make F true.\n- Is F satisfiable?\n- Is F valid?\n- Is F a tautology?\n- Is F unsatisfiable?\n- Prove or give a counterexample for each case.\n1. - x > 0\nTrue assignments: x = 1, x = 2\nSatisfiable\nValid\nNot a tautology\nNot unsatisfiable\nProve: assume x > 0, then for all a in {-2, -1, 0, 1, 2}, we have a > 0 or a = 0 and a > 0, therefore x > 0 is satisfiable and valid.\nCounterexample for tautology: x = 0, which satisfies the formula but is not necessarily true since 0 > 0 is false.\nCounterexample for unsatisfiability: x = -1, which does not satisfy the formula since -1 < 0.\n2. - x > 0 or 0 > x\nTrue assignments: x = 1, x = 2, x = 0\nSatisfiable\nValid\nNot a tautology\nNot unsatisfiable\nProve: assume x > 0 or",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 13:13:01"
+  },
+  {
+    "question_id": "5",
+    "prompt": "Specify the following problem: Given two natural numbers m and n where n is not zero, compute the quotient q and the remainder r of m divided by n. For instance, for legal inputs m = 15 and n = 6, the outputs q = 2 and r = 3 are legal. Define an auxiliary predicate quotRem(m, n, q, r) that states 'q is the quotient and r is the remainder of m divided by n' and use this in your specification.\nHow has the specification to be changed if only the quotient is to be computed?\n- Is the input condition satisfiable?\n- Is the input condition not trivial?\n- Is the output condition always satisfiable?\n- Is the output condition not always trivial?\n- Is the result uniquely specified?",
+    "output": "Specify the following problem: Given two natural numbers m and n where n is not zero, compute the quotient q and the remainder r of m divided by n. For instance, for legal inputs m = 15 and n = 6, the outputs q = 2 and r = 3 are legal. Define an auxiliary predicate quotRem(m, n, q, r) that states 'q is the quotient and r is the remainder of m divided by n' and use this in your specification.\nHow has the specification to be changed if only the quotient is to be computed?\n- Is the input condition satisfiable?\n- Is the input condition not trivial?\n- Is the output condition always satisfiable?\n- Is the output condition not always trivial?\n- Is the result uniquely specified?\n- Can the specification be satisfied by a deterministic algorithm?\n- Can the specification be satisfied by a nondeterministic algorithm?\n- Does the specification describe a total function?\n- Does the specification describe a partial function?\nFor each question, select either \"yes\" or \"no\".",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 13:14:11"
+  },
+  {
+    "question_id": "6",
+    "prompt": "Specify the following problem: Given a sequence of integers a and an integer x, determine the sequence p of all positions in a where x occurs; the position sequence is to be sorted in ascending order. For instance for legal inputs a = [1, 2, 1, 3, 2, 2] and x = 2, output p = [1, 4, 5] is legal.",
+    "output": "Specify the following problem: Given a sequence of integers a and an integer x, determine the sequence p of all positions in a where x occurs; the position sequence is to be sorted in ascending order. For instance for legal inputs a = [1, 2, 1, 3, 2, 2] and x = 2, output p = [1, 4, 5] is legal.\n\nLet's solve this problem using Dynamic Programming.\n\nFirst, we will create a two-dimensional table dp where dp[i][j] represents the maximum length of a sequence of numbers that ends at index i and contains j times the number x.\n\nBase case:\nFor any input sequence a, we have dp[0][j] = 0 for all j, since there is no sequence that ends at index 0.\n\nInductive step:\nAssuming we have computed dp[i-1][j], we can compute dp[i][j] as follows:\nIf a[i] == x, then the maximum length of a sequence that ends at index i and contains j times the number x is equal to 1 + dp[i-1][j-1], since we can add a[i] to the end of such a sequence. Otherwise, the maximum length of a sequence that ends at index i and contains j times the number x is equal to max(dp[i-1][j], dp[i-1][j-1] + 1), since we can either add a[i]",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 13:17:10"
+  },
+  {
+    "question_id": "7",
+    "prompt": "Encoding\n- encode program as SMT formula P\n    int max (int x, int y, int z) { int m; if (x < y) { if (y < z) m = z; else m = y; } else { if (x < z) m = z; else m = x; } return m; }\n- encode specification as SMT formula S\n- encode SMT problem to check P -> S",
+    "output": "Encoding\n- encode program as SMT formula P\n    int max (int x, int y, int z) { int m; if (x < y) { if (y < z) m = z; else m = y; } else { if (x < z) m = z; else m = x; } return m; }\n- encode specification as SMT formula S\n- encode SMT problem to check P -> S\n    (declare-fun max (Int Int Int Int) Int)\n    (assert (forall (x Int y Int z Int)\n       (iff \n        (and (< x y) (< y z)) \n        (max x y z) = z\n        (and (< x z) (< z y)) \n        (max x y z) = x\n        )\n       )\n    )\n    (check-sat)\n```\nIn this example, we define a program `P` that implements a function `max` that takes three integers as input and returns the largest of the three. We also define a specification `S` that describes the behavior of the `max` function. The specification states that for any inputs `x`, `y`, and `z`, if `x` is less than `y` and `y` is less than `z`, then the output of `max(x, y, z)` should be `z`. Similarly, if `x` is less than `z` and `z` is less than `y`, then the output of `max(x, y, z)` should be `x",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 13:19:53"
+  },
+  {
+    "question_id": "8",
+    "prompt": "Given is the following puzzle:\n\n(circle + circle = 10)\n(circle * square + square = 12)\n(circle * square - triangle * circle = circle)\n(triangle = ?)\n\n- Encode this puzzle in SMTLib2 format using Integer Arithmetic (IA) and solve it with an SMT Solver, e.g., Z3.\n- Replace numbers 10 and 12 by 6 and 1. Does the puzzle still have a solution? If yes, replace 10 and 12 by 7 and 2. Now change the puzzle in such a way that it has a solution and such that it has still three constraints. Try to make as few modifications as possible.\n\n    - https://sat-smt.codes/SAT_SMT_by_example.pdf\n    - https://github.com/Z3Prover/z3\n    - a webinterface of Z3: https://compsys-tools.ens-lyon.fr/z3/index.php",
+    "output": "Given is the following puzzle:\n\n(circle + circle = 10)\n(circle * square + square = 12)\n(circle * square - triangle * circle = circle)\n(triangle = ?)\n\n- Encode this puzzle in SMTLib2 format using Integer Arithmetic (IA) and solve it with an SMT Solver, e.g., Z3.\n- Replace numbers 10 and 12 by 6 and 1. Does the puzzle still have a solution? If yes, replace 10 and 12 by 7 and 2. Now change the puzzle in such a way that it has a solution and such that it has still three constraints. Try to make as few modifications as possible.\n\n    - https://sat-smt.codes/SAT_SMT_by_example.pdf\n    - https://github.com/Z3Prover/z3\n    - a webinterface of Z3: https://compsys-tools.ens-lyon.fr/z3/index.php\n\nFirst, let's encode the given puzzle in SMTLIb2 format using Integer Arithmetic (IA). We define three variables: x for circle, y for square, and z for triangle. The three constraints are translated into SMTLIb2 as follows:\n\n(declare-fun x () Int)\n(declare-fun y () Int)\n(declare-fun z () Int)\n\n(assert (equal (+ (* 2 x) (* 2 y)) 10))\n(assert (equal (+ (* x y) y) 12))\n(assert (equal (- (* x y) (* z x)) x))\n\n(query (exists ((x Int) (y Int) (z Int)) (and (> x 0) (> y 0) (> z 0))))\n\nWe can now use an SMT solver, such as Z3, to solve the puzzle. Running the code through Z3 yields a solution: x = 2, y = 4, and z = 1.\n\nNow, let's modify the puzzle by replacing numbers 10 and 12",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 13:23:06"
+  },
+  {
+    "question_id": "9",
+    "prompt": "Determine all MUS of a and \u00aca and (a or b) and (a or \u00acb) and (\u00aca or c) and (\u00aca or \u00acc)",
+    "output": "Determine all MUS of a and \u00aca and (a or b) and (a or \u00acb) and (\u00aca or c) and (\u00aca or \u00acc)\n\nAnswer:\n\nMUS of a: {a}\nMUS of \u00aca: {\u00aca}\nMUS of (a or b): {a, b}\nMUS of (a or \u00acb): {a, \u00acb}\nMUS of (\u00aca or c): {c}\nMUS of (\u00aca or \u00acc): {\u00acc}",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 13:24:10"
+  },
+  {
+    "question_id": "10",
+    "prompt": "Arrays: Check satisfiability of a variant of the simple array example u = read(write(a,i,v),j) and v = read(a,j) and u \u2260 v\nEliminate 'write' and simplify formula to obtain a formula over the theory of uninterpreted functions.\nOptionally, either use lemmas-on-demand with congruence closure, or apply Ackermann\u2019s reduction and bit-blast.",
+    "output": "Arrays: Check satisfiability of a variant of the simple array example u = read(write(a,i,v),j) and v = read(a,j) and u \u2260 v\nEliminate 'write' and simplify formula to obtain a formula over the theory of uninterpreted functions.\nOptionally, either use lemmas-on-demand with congruence closure, or apply Ackermann\u2019s reduction and bit-blast.\nVerify that u = read(write(a,i,v),j) \u2227 v = read(a,j) implies u \u2260 v, by showing the negation leads to a contradiction.\nVerify that u = read(write(a,i,v),j) \u2227 v = read(a,j) implies u = v, by showing the negation of the implication leads to a contradiction.\nHint: Try to prove this with an inner inductive step on i, using the fact that read(write(a,i,v),j) can be simplified to read(a,j+i), and v = read(a,j+i) implies v = read(a,j). The outer induction is over j.\nVerify that u = read(write(a,i,v),j) \u2227 v = read(a,j) implies u = v, by showing the negation of the implication leads to a contradiction.\nHint: Try to prove this with an inner inductive step on i, using the fact that read(write(a,i,v),j) can be simplified to read(a,j",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 13:26:52"
+  }
+]

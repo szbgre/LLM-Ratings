@@ -1,0 +1,102 @@
+[
+  {
+    "question_id": "1",
+    "prompt": "Given the propositional formula $\\psi := ((a \\lor \\neg b \\lor c) \\land (\\neg a \\lor b \\lor c) \\land (a \\lor \\neg b \\lor \\neg c) \\land (\\neg a \\lor \\neg b \\lor c) \\land (\\neg a \\lor  b \\lor \\neg c))$. Which of the following assignments satisfy $\\psi$?\n- $\\neg a, b, \\neg c$\n- $a, b, c$\n- $\\neg a, \\neg b, \\neg c$\n- $a, \\neg b, c$",
+    "output": "Given the propositional formula $\\psi := ((a \\lor \neg b \\lor c) \\land (\neg a \\lor b \\lor c) \\land (a \\lor \neg b \\lor \neg c) \\land (\neg a \\lor \neg b \\lor c) \\land (\neg a \\lor  b \\lor \neg c))$. Which of the following assignments satisfy $\\psi$?\n- $\neg a, b, \neg c$\n- $a, b, c$\n- $\neg a, \neg b, \neg c$\n- $a, \neg b, c$\n- $\neg a, b, \neg c$\n- $a, b, \neg c$\n\nI've tried to solve it, but I don't know how to do it. Can someone help me?\n\nAnswer: To determine which assignments satisfy the formula $\\psi$, we need to evaluate the truth of each subformula and ensure that all of them are true for a given assignment.\n\nHere's the structure of the formula $\\psi$:\n\n$$\\psi := ((a \\lor \neg b \\lor c) \\land (\neg a \\lor b \\lor c) \\land (a \\lor \neg b \\lor \neg c) \\land (\neg a \\lor \neg b \\lor c) \\land (\neg a \\lor  b \\lor \neg c))$$\n\nLet's break it down into its five subformulas:\n\n1. $(a \\lor \neg b \\lor c)$\n2. $(\neg a \\lor b \\lor c)$\n3. $(a \\lor \neg b \\lor \neg c)$",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:06:58"
+  },
+  {
+    "question_id": "2",
+    "prompt": "Show the truth tables of the following formulas:\n- $(a \\lor b) \\land \\neg(a \\lor b)$\n- $\\neg\\neg(a \\rightarrow a) \\lor (a \\land (\\neg b \\lor c \\lor d))$\n- $((\\neg(a \\lor b) \\land (a \\lor \\neg b)) \\leftrightarrow (a \\leftrightarrow b)$",
+    "output": "Show the truth tables of the following formulas:\n- $(a \\lor b) \\land \neg(a \\lor b)$\n- $\neg\neg(a \nightarrow a) \\lor (a \\land (\neg b \\lor c \\lor d))$\n- $((\neg(a \\lor b) \\land (a \\lor \neg b)) \\leftrightarrow (a \\leftrightarrow b)$\n\nNote: $a,b,c$ and $d$ are propositional variables.\n$\neg(P)$ stands for the logical negation of $P$ i.e., $\neg(P) = \\neg P$\n\nAnswer:\n\n1. $(a \\lor b) \\land \neg(a \\lor b)$\n\nTruth table:\n\n| $a$ | $b$ | $(a \\lor b)$ | $\neg(a \\lor b)$ | $(a \\lor b) \\land \neg(a \\lor b)$ |\n| --- | --- | --- | --- | --- |\n| T | T | T | T | T |\n| T | F | T | F | F |\n| F | T | T | T | T |\n| F | F | F | F | F |\n\nThe formula is valid, since it is always true that if $a \\lor b$ is true, then $\neg(a \\lor b)$ is false, and therefore the conjunction is true.\n\n2. $\neg\neg(a \\leftrightarrow a) \\",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:09:49"
+  },
+  {
+    "question_id": "3",
+    "prompt": "Show that $(a \\land b) \\lor \\neg(c \\land d)$ and $(a \\lor \\neg c \\lor \\neg d) \\land (b \\lor \\neg c \\lor \\neg d)$ are equivalent.",
+    "output": "Show that $(a \\land b) \\lor \neg(c \\land d)$ and $(a \\lor \neg c \\lor \neg d) \\land (b \\lor \neg c \\lor \neg d)$ are equivalent.\n\nI've tried using the rules of logic to simplify the expressions but I'm not sure if my work is correct. Can someone please help me with this?\n\nThank you!\n\nAnswer: HINT: Try using the distributive property of $\\lor$ over $\\land$.\n\n\\begin{align\\*}\n(a \\land b) \\lor (c \\land d)\n&= a \\land b \\lor c \\land d \\tag{distributive property} \\\\\n&= (a \\lor c) \\land (b \\lor d) \\tag{distributive property} \\\\\n&= (a \\lor eg c) \\land (b \\lor eg d) \\tag{since $eg$ is a logical equivalent of $c$ and $d$} \\\\\n&= (a \\lor eg c \\lor eg d) \\land (b \\lor eg c \\lor eg d) \\tag{associative property} \\\\\n&= (a \\lor b) \\land (eg c \\lor eg d) \\tag{commutative property} \\\\\n&= (a \\lor b \\lor eg c) \\land (eg d) \\tag{",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:12:22"
+  },
+  {
+    "question_id": "4",
+    "prompt": "Start with the Limboole formula:\n\n(c | !a | !d | e) & \n(c | !d | e | !b) & \n(!b | !d | a | e) & \n(d | !e | a | !b) & \n(b | !c | d | !e) & \n(b | e | a | d) & \n(c | a | d | !e) & \n(!d | !e | b | a) & \n(!d | b | !c | e) & \n(!e | !a | d | !c) & \n(!b | a | !c | !d) & \n(!a | d | c | e) & \n(!c | e | !b | !d) & \n(!c | !a | d | b) & \n(e | !d | !b | !c) & \n(!c | !e | d | b) & \n(b | !d | e | !c) & \n(b | d | !e | a) & \n(e | !d | !b | !a)\n\nGet a satisfying assignment for that formula with Limboole. Write down this solution and then conjunct its negation with the formula to get a new formula which does not have the solution found before. Now get another solution of the modified formula and proceed the same way until the formula becomes unsatisfiable. Count the number of solutions you found.\n\nHere is the README from Limboole:\n This is a simple boolean calculator. It reads a boolean formula and checks whether it is valid. In case '-s' is specified satisfiability is checked instead of validity (tautology).\n Language\n The input format has the following syntax in BNF:\n( [ ... ] means optional, { ... } means repeated arbitrary many times)\n\nexpr ::= iff\niff ::= implies { '<->' implies }\nimplies ::= or [ '->' or | '<-' or ]\nor ::= and { '|' and }\nand ::= not { '&' not }\nnot ::= basic | '!' not\nbasic ::= var | '(' expr ')'\n\nand 'var' is a string over letters, digits and the following characters:\n- \\_ . \\[ \\] $ @\nThe last character of 'var' should be different from '-'.",
+    "output": "",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:12:24"
+  },
+  {
+    "question_id": "5",
+    "prompt": "Show the resolution proof of formula $(x \\vee y) \\land (\\neg x \\vee y) \\land (x \\vee \\neg y) \\land (\\neg x \\vee \\neg y)$",
+    "output": "Show the resolution proof of formula $(x \\vee y) \\land (\neg x \\vee y) \\land (x \\vee \neg y) \\land (\neg x \\vee \neg y)$\n\nI'm having trouble understanding how to prove this using resolution. Could someone please provide a step-by-step explanation of the proof?\n\nAnswer: Sure! Here's a step-by-step guide to proving the given formula using resolution:\n\n1. First, we need to convert the formula into conjunctive normal form (CNF). In this case, the formula is already in CNF, so we don't need to do anything here.\n2. Next, we need to resolve the clauses of the formula. A clause is a disjunction of literals (either positive or negative), and resolution involves combining two clauses that have complementary literals (i.e., literals that negate each other) and producing a new clause.\n3. The first clause we'll consider is $(x \\vee y) \\land (eg x \\vee y)$. This clause has two literals: $x \\vee y$ and $eg x \\vee y$.\n4. The second clause we'll consider is $(x \\vee \neg y) \\land (\neg x \\vee \neg y)$. This clause has two liter",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:14:56"
+  },
+  {
+    "question_id": "6",
+    "prompt": "Prove by resolution that the formula is indeed unsatisfiable.\n\n( b | x | !d ) &\n( x | !y | b ) &\n( !x | b | !y ) &\n( !y | !a | !z ) &\n( c | a | !d ) &\n( z ) &\n( !c ) &\n( a | !z | y ) &\n( y | !b | x ) &\n( !b | !d | !x ) &\n( d | x | !b ) &\n( !x | !y | !b ) &\n( !a | d | c ) &\n( b | y | !x ) &\n( b | !x | !d )",
+    "output": "Prove by resolution that the formula is indeed unsatisfiable.\n\n( b | x | !d ) &\n( x | !y | b ) &\n( !x | b | !y ) &\n( !y | !a | !z ) &\n( c | a | !d ) &\n( z ) &\n( !c ) &\n( a | !z | y ) &\n( y | !b | x ) &\n( !b | !d | !x ) &\n( d | x | !b ) &\n( !x | !y | !b ) &\n( !a | d | c ) &\n( b | y | !x ) &\n( b | !x | !d ) &\n( !b | x | !d ) &\n( !c | a | z ) &\n( z | x | y ) &\n( y | b | !x ) &\n( !y | b | x ) &\n( !z | a | d ) &\n( !a | d | x ) &\n( x | b | !d ) &\n( !x | !b | d ) &\n( !c | !a | z ) &\n( z | !x | y ) &\n( y | !b | x ) &\n( !y | b | !x ) &\n( !z | !a | d ) &\n( !a | !d | x ) &\n( x | !b | !d ) &\n( !x | !b | d )\n\nI've tried using the resolution rule to prove that this formula is unsatisfiable, but I keep getting stuck. Can someone help me understand how to use the resolution rule to prove this?\n\nAnswer: Sure! To use the resolution rule to prove that a formula is unsatisfiable, you need to show that it leads to a",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:17:50"
+  },
+  {
+    "question_id": "7",
+    "prompt": "Below you see various formulas in which the outermost logical operation is the negation connective \u00ac. For each formula give a logically equivalent formula in which \u00ac is only applied to atomic formulas (i.e., \"push the negation inside as much as possible\").\n\\begin{verbatim}\n\nN means the set of natural numbers in the following. \n\nExample: \u00ac \u2200x:N[2]. p[x] -> \u2203y:N[2]. q[x][y]\n\nSolution: \u2203x:N[2]. p[x] \u2227 \u2200y:N[2]. \u00ac q[x][y]\n\nTask 5a: push the negation inside\n\u00ac \u2200x:N[2]. p[x] -> (q[x][x] \u2228 \u2203y:N[2]. q[x][y] \u2227 p[y])\n\nTask 5b: push the negation inside\n\u00ac ((\u2203x:N[2]. p[x]) \u2227 (\u2200x:N[2]. \u2203y:N[2]. p[y] \u2227 \n(q[x][y] \u2228 q[y][x])))\n\\end{verbatim}",
+    "output": "Below you see various formulas in which the outermost logical operation is the negation connective \u00ac. For each formula give a logically equivalent formula in which \u00ac is only applied to atomic formulas (i.e., \"push the negation inside as much as possible\").\n\\begin{verbatim}\n\nN means the set of natural numbers in the following. \n\nExample: \u00ac \u2200x:N[2]. p[x] -> \u2203y:N[2]. q[x][y]\n\nSolution: \u2203x:N[2]. p[x] \u2227 \u2200y:N[2]. \u00ac q[x][y]\n\nTask 5a: push the negation inside\n\u00ac \u2200x:N[2]. p[x] -> (q[x][x] \u2228 \u2203y:N[2]. q[x][y] \u2227 p[y])\n\nTask 5b: push the negation inside\n\u00ac ((\u2203x:N[2]. p[x]) \u2227 (\u2200x:N[2]. \u2203y:N[2]. p[y] \u2227 \n(q[x][y] \u2228 q[y][x])))\n\\end{verbatim}\n\nI don't understand how to solve these two tasks. Could someone explain the steps I need to take in order to solve them?\n\nThanks!\n\nAnswer: Sure, I'd be happy to help! The goal of \"pushing the negation inside\" is to move the negation symbol (\u00ac) inside the parentheses as much as possible, so that it only applies to atomic formulas.\n\nHere are the steps you can follow to solve tasks 5a and 5b:\n\nTask 5a:\n\n1. Start with the given formula: \u00ac \u2200x:N[2]. p[x] -> (q[x][x] \u2228 \u2203y:N[2]. q[x][y] \u2227 p[y])\n2. Move the negation symbol inside the implication arrow: \u00ac (p[x] -> (q[x][x] \u2228 \u2203y:N[2]. q[x][y] \u2227 p[y]))\n3. Distribute the negation over the disjunction: \u00ac p[x] \u2228 \u00ac (q[x][x] \u2228",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:21:05"
+  },
+  {
+    "question_id": "8",
+    "prompt": "Apply BCP until fixpoint on the following formulas:\n- $(\\neg a \\lor b) \\land (\\neg a \\lor \\neg b) \\land a$\n- $(a \\lor b \\lor c \\lor d) \\land (\\neg a) \\land (\\neg c \\lor \\neg d) \\land (a \\lor c \\lor \\neg d) \\land (c \\lor \\neg b) \\land \\neg c$",
+    "output": "Apply BCP until fixpoint on the following formulas:\n- $(\neg a \\lor b) \\land (\neg a \\lor \neg b) \\land a$\n- $(a \\lor b \\lor c \\lor d) \\land (\neg a) \\land (\neg c \\lor \neg d) \\land (a \\lor c \\lor \neg d) \\land (c \\lor \neg b) \\land \neg c$\n- $(a \\lor b) \\land (a \\lor eg b) \\land (b \\lor eg a)$\n- $(a \\lor b \\lor c) \\land (a \\lor eg c) \\land (b \\lor eg a) \\land (c \\lor eg b)$\n- $\\neg (a \\lor b) \\land \\neg (a \\lor eg b) \\land \\neg (b \\lor eg a)$\n- $\\neg (a \\lor b \\lor c) \\land \\neg (a \\lor eg c) \\land \\neg (b \\lor eg a) \\land \\neg (c \\lor eg b)$\n\n(Note: $eg$ stands for existential quantification, meaning that the formula is true if there exists an assignment of values to the variables that makes it true. $\\neg$ stands for negation, meaning that the formula is false if the negated formula is true. $\\land$ and $\\lor$ stand for conjunction and disjunction, respectively.)\n\nI've tried applying BCP until a fixpoint is reached, but I'm not sure if my steps are correct. Can someone please provide",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:23:47"
+  },
+  {
+    "question_id": "9",
+    "prompt": "Start with the Limboole formula:\n\n(c & !a & !d & e) | \n(c & !d & e & !b) | \n(!b & !d & a & e) | \n(d & !e & a & !b) | \n(b & !c & d & !e) | \n(b & e & a & d) | \n(c & a & d & !e) | \n(!d & !e & b & a) | \n(!d & b & !c & e) | \n(!e & !a & d & !c) | \n(!b & a & !c & !d) | \n(!a & d & c & e) | \n(!c & e & !b & !d) | \n(!c & !a & d & b) | \n(e & !d & !b & !c) | \n(!c & !e & d & b) | \n(b & !d & e & !c) | \n(b & d & !e & a) | \n(e & !d & !b & !a)\n\nTranslate the formula into a formula in conjunctive normal form (CNF) by introducing new labels (approach 2). Introduce one label per line. For line $n$, introduce label $l_n$. When you replaced all the conjunctions by labels, you will get a big clause. For this clause no further label has to be introduced (but it is not wrong if you do it).",
+    "output": "Start with the Limboole formula:\n\n(c & !a & !d & e) | \n(c & !d & e & !b) | \n(!b & !d & a & e) | \n(d & !e & a & !b) | \n(b & !c & d & !e) | \n(b & e & a & d) | \n(c & a & d & !e) | \n(!d & !e & b & a) | \n(!d & b & !c & e) | \n(!e & !a & d & !c) | \n(!b & a & !c & !d) | \n(!a & d & c & e) | \n(!c & e & !b & !d) | \n(!c & !a & d & b) | \n(e & !d & !b & !c) | \n(!c & !e & d & b) | \n(b & !d & e & !c) | \n(b & d & !e & a) | \n(e & !d & !b & !a)\n\nTranslate the formula into a formula in conjunctive normal form (CNF) by introducing new labels (approach 2). Introduce one label per line. For line $n$, introduce label $l_n$. When you replaced all the conjunctions by labels, you will get a big clause. For this clause no further label has to be introduced (but it is not wrong if you do it).\n\nThe CNF formula is:\n\n$l_1 \\vee l_2 \\vee l_3 \\vee l_4 \\vee l_5 \\vee l_6 \\vee l_7 \\vee l_8 \\vee l_9 \\vee l_{10} \\vee l_{11}$\nwhere:\n\n$l_1 = (c & !a & !d & e)$\n$l_2 = (c & !d & e & !b)$\n$l_3 = (!b & !d & a & e)$\n$l_4 = (d & !e & a & !b)$\n$l_5 = (b & !c & d & !e)$\n$l_6 = (b & !d & e & !a)$\n$l_7 = (!b & !a & !d & e)$\n$l_8 = (a & !b & !d & e)$\n$l_9 = (!a & !b & !d & e)$\n$l_{10} = (a & !b & !e & !d)$\n$l_{11",
+    "rating": 2,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:27:15"
+  },
+  {
+    "question_id": "10",
+    "prompt": "Transform the following formula to an equivalent formula in negation normal form (NNF):\n$$ ( (\\neg x \\rightarrow (y \\lor z)) \\leftrightarrow (x \\lor \\neg y)) $$",
+    "output": "Transform the following formula to an equivalent formula in negation normal form (NNF):\n$$ ( (\neg x \nightarrow (y \\lor z)) \\leftrightarrow (x \\lor \neg y)) $$\nI've tried to simplify the formula by using the equivalence $(p \\lor q) \\leftrightarrow (p \\lor \\neg q)$:\n\n$$ ( (\neg x \\Rightarrow (y \\lor z)) \\leftrightarrow (x \\lor \neg y)) \\equiv ((\\neg eg x \\lor y) \\lor (\\neg eg x \\lor z)) \\lor (x \\lor \\neg eg y)$$\n\nHowever, I'm not sure if this is correct. Could someone please help me out?\n\nAnswer: Your conversion is almost correct, but there is a small mistake. The correct negation normal form (NNF) of the given formula is:\n\n$$(((\\neg e_g x \\lor y) \\lor (\\neg e_g x \\lor z)) \\lor (x \\lor \\neg e_g y)) \\equiv ((\\neg e_g x \\lor y) \\lor (\\neg e_g x \\lor z)) \\lor (x \\lor \\neg e_g y)$$\n\nIn your conversion, you have mistakenly distributed the negation symbol $\\neg$ to the whole formula, which is not correct.",
+    "rating": 1,
+    "errorcodes": [],
+    "warningcodes": [],
+    "comment": "",
+    "timestamp": "2024-02-23 12:29:47"
+  }
+]

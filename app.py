@@ -11,14 +11,7 @@ def load_json_from_git(category, model_name):
         st.error(f"Failed to load data for {model_name} in {category}: HTTP {response.status_code}")
         return None
 
-def get_rating_color_and_description(rating):
-    descriptions = {
-        '1': 'Misinterpretation of the Problem',
-        '2': 'Incorrect Solution',
-        '3': 'Partially Correct Solution',
-        '4': 'Mostly Correct Solution',
-        '5': 'Completely Correct Solution'
-    }
+def get_rating_color(rating):
     custom_colors = [
         'rgba(135, 206, 250, 0.6)',  # Light blue for '1'
         'rgba(100, 149, 237, 0.6)',  # Blue for '2'
@@ -26,8 +19,7 @@ def get_rating_color_and_description(rating):
         'rgba(255, 156, 143, 0.6)',  # Light coral for '4'
         'rgba(255, 182, 193, 0.6)'   # Pink for '5'
     ]
-    rating_str = str(rating)  # Convert rating to string
-    return custom_colors[int(rating_str) - 1], descriptions[rating_str]
+    return custom_colors[int(rating) - 1]
 
 def main():
     st.title('LLM Answers Evaluation')
@@ -59,28 +51,33 @@ def main():
         if data:
             st.image(f"{categories_base_url}{selected_category}.png", use_column_width=True)
             st.markdown(f"### Responses and Evaluations for {selected_category}")
-            
-            # Assuming all models have the same number of questions
-            num_questions = min(len(data[model]) for model in models if data[model])
-            for q_index in range(num_questions):
-                question_displayed = False
-                for model, responses in data.items():
-                    if responses and q_index < len(responses):
-                        response = responses[q_index]
-                        if not question_displayed:
-                            st.markdown(f"<div style='background-color: #f0f0f0; padding: 10px; border-radius: 5px;'>#### Question {response['question_id']}<br>{response['prompt']}</div>", unsafe_allow_html=True)
-                            question_displayed = True
 
-                        rating_color, description = get_rating_color_and_description(response['rating'])
-                        with st.container():
+            for q_index in range(len(data[models[0]])):
+                for model, responses in data.items():
+                    response = responses[q_index]
+                    question = response['prompt']
+                    st.markdown(f"<div style='background-color: #f0f0f0; padding: 10px; border-radius: 5px;'>{question}</div>", unsafe_allow_html=True)
+                    rating_color = get_rating_color(response['rating'])
+                    with st.container():
+                        col1, col2 = st.columns([1, 20])
+                        with col1:
+                            if st.button("*", key=f"{model}{q_index}"):
+                                st.session_state.scrollToRatings = True
+                        with col2:
                             st.markdown(f"""
-                            <div style="border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: {rating_color};"
-                                        title="{description}: {response['comment']}">
-                                <h4>{model}</h4>
-                                <p><strong>Rating:</strong> {response['rating']} - {description}</p>
-                            </div>
+                                <div style="border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: {rating_color};">
+                                    <h4>{model}</h4>
+                                    <p><strong>Rating:</strong> {response['rating']}</p>
+                                </div>
                             """, unsafe_allow_html=True)
                         st.write(response['output'])
+
+            st.markdown("## Explanation of Ratings")
+            if 'scrollToRatings' in st.session_state and st.session_state.scrollToRatings:
+                st.image("Ratings/Ratings.png", use_column_width=True)
+                del st.session_state.scrollToRatings
+            else:
+                st.image("Ratings/Ratings.png", use_column_width=True)
 
 if __name__ == "__main__":
     main()

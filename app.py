@@ -26,7 +26,8 @@ def get_rating_color_and_description(rating):
         'rgba(255, 156, 143, 0.6)',  # Light coral for '4'
         'rgba(255, 182, 193, 0.6)'   # Pink for '5'
     ]
-    return custom_colors[int(rating) - 1], descriptions[rating]
+    rating_str = str(rating)  # Convert rating to string
+    return custom_colors[int(rating_str) - 1], descriptions[rating_str]
 
 def main():
     st.title('LLM Answers Evaluation')

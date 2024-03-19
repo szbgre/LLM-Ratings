@@ -14,39 +14,42 @@ def load_json_from_git(category, model_name):
 def main():
     st.title('LLM Answers Evaluation')
 
-    col1, col2 = st.columns(2)
-    with col1:
-        st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/800px-ChatGPT_logo.svg.png", width=300)
-    with col2:
-        st.image("https://eu-images.contentstack.com/v3/assets/blt6b0f74e5591baa03/blt98d8a946b63c9b5f/64b7170ab314c94aa481d8c3/Untitled_design_(1).jpg", width=540)
+    categories = ['Q1', 'Q2', 'Q3', 'Q4', 'Q5']
+    labels_base_url = "https://raw.githubusercontent.com/szbgre/LLM-Ratings/master/Labels/"
 
-    st.markdown("### Step 1: Choose a category")
-    category = st.selectbox("Select a category", ['Q1', 'Q2', 'Q3', 'Q4', 'Q5'])
+    # Display category labels
+    cols = st.columns(len(categories))
+    selected_category = None
+    for i, category in enumerate(categories):
+        with cols[i]:
+            if st.button(image=f"{labels_base_url}{category}.png", label=category):
+                selected_category = category
 
-    models = ['GPT3.5', 'GPT4', 'Llama-2-70B-Chat-GGU', 'Llama-2-70B-GGU']
-    data = {}
-    for model in models:
-        data[model] = load_json_from_git(category, model)
+    if selected_category:
+        models = ['GPT3.5', 'GPT4', 'Llama-2-70B-Chat-GGU', 'Llama-2-70B-GGU']
+        data = {}
+        for model in models:
+            data[model] = load_json_from_git(selected_category, model)
 
-    if data:
-        st.markdown("### Responses and Evaluations")
-        # Assuming all models have the same number of questions
-        num_questions = min(len(data[model]) for model in models if data[model])
-        for q_index in range(num_questions):
-            question_displayed = False
-            for model, responses in data.items():
-                if responses and q_index < len(responses):
-                    response = responses[q_index]
-                    if not question_displayed:
-                        st.markdown(f"## Question {response['question_id']}")
-                        st.write(response['prompt'])
-                        question_displayed = True
-                    
-                    st.markdown(f"**{model} Output:**")
-                    st.write(response['output'])
-                    st.markdown(f"**Rating:** {response['rating']}")
-                    if response['comment']:
-                        st.markdown(f"**Comment:** {response['comment']}")
+        if data:
+            st.markdown(f"### Responses and Evaluations for {selected_category}")
+            # Assuming all models have the same number of questions
+            num_questions = min(len(data[model]) for model in models if data[model])
+            for q_index in range(num_questions):
+                question_displayed = False
+                for model, responses in data.items():
+                    if responses and q_index < len(responses):
+                        response = responses[q_index]
+                        if not question_displayed:
+                            st.markdown(f"## Question {response['question_id']}")
+                            st.write(response['prompt'])
+                            question_displayed = True
+                        
+                        st.markdown(f"**{model} Output:**")
+                        st.write(response['output'])
+                        st.markdown(f"**Rating:** {response['rating']}")
+                        if response['comment']:
+                            st.markdown(f"**Comment:** {response['comment']}")
 
 if __name__ == "__main__":
     main()

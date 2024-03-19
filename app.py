@@ -3,9 +3,13 @@ import json
 import requests
 
 def load_json_from_git(category, model_name):
-    base_url = f"https://raw.githubusercontent.com/szbgre/LLM-Ratings/{category}/{model_name}.json"
+    base_url = f"https://raw.githubusercontent.com/szbgre/LLM-Ratings/master/{category}/{model_name}.json"
     response = requests.get(base_url)
-    return response.json()
+    if response.status_code == 200:
+        return response.json()
+    else:
+        st.error(f"Failed to load data for {model_name} in {category}: HTTP {response.status_code}")
+        return None
 
 def main():
     st.title('LLM Answers Evaluation')
@@ -27,21 +31,22 @@ def main():
     if data:
         st.markdown("### Responses and Evaluations")
         # Assuming all models have the same number of questions
-        num_questions = len(data[models[0]])
+        num_questions = min(len(data[model]) for model in models if data[model])
         for q_index in range(num_questions):
             question_displayed = False
             for model, responses in data.items():
-                response = responses[q_index]
-                if not question_displayed:
-                    st.markdown(f"## Question {response['question_id']}")
-                    st.write(response['prompt'])
-                    question_displayed = True
-                
-                st.markdown(f"**{model} Output:**")
-                st.write(response['output'])
-                st.markdown(f"**Rating:** {response['rating']}")
-                if response['comment']:
-                    st.markdown(f"**Comment:** {response['comment']}")
+                if responses and q_index < len(responses):
+                    response = responses[q_index]
+                    if not question_displayed:
+                        st.markdown(f"## Question {response['question_id']}")
+                        st.write(response['prompt'])
+                        question_displayed = True
+                    
+                    st.markdown(f"**{model} Output:**")
+                    st.write(response['output'])
+                    st.markdown(f"**Rating:** {response['rating']}")
+                    if response['comment']:
+                        st.markdown(f"**Comment:** {response['comment']}")
 
 if __name__ == "__main__":
     main()

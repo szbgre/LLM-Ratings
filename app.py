@@ -17,13 +17,17 @@ def main():
     categories = ['Q1', 'Q2', 'Q3', 'Q4', 'Q5']
     labels_base_url = "https://raw.githubusercontent.com/szbgre/LLM-Ratings/master/Labels/"
 
-    # Display category labels
+    # Display category labels and make them clickable
     cols = st.columns(len(categories))
     selected_category = None
     for i, category in enumerate(categories):
         with cols[i]:
-            if st.button(image=f"{labels_base_url}{category}.png", label=category):
+            if st.image(f"{labels_base_url}{category}.png", use_column_width=True, on_click=lambda c=category: select_category(c)):
                 selected_category = category
+
+    def select_category(category):
+        nonlocal selected_category
+        selected_category = category
 
     if selected_category:
         models = ['GPT3.5', 'GPT4', 'Llama-2-70B-Chat-GGU', 'Llama-2-70B-GGU']

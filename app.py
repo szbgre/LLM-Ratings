@@ -11,6 +11,16 @@ def load_json_from_git(category, model_name):
         st.error(f"Failed to load data for {model_name} in {category}: HTTP {response.status_code}")
         return None
 
+def get_rating_color(rating):
+    custom_colors = [
+        'rgba(135, 206, 250, 0.6)',  # Light blue for '1'
+        'rgba(100, 149, 237, 0.6)',  # Blue for '2'
+        'rgba(64, 224, 208, 0.6)',   # Turquoise for '3'
+        'rgba(255, 156, 143, 0.6)',  # Light coral for '4'
+        'rgba(255, 182, 193, 0.6)'   # Pink for '5'
+    ]
+    return custom_colors[int(rating) - 1]
+
 def main():
     st.title('LLM Answers Evaluation')
 
@@ -53,10 +63,16 @@ def main():
                             st.markdown(f"#### Question {response['question_id']}")
                             st.write(response['prompt'])
                             question_displayed = True
-                        
-                        st.markdown(f"**{model} Output:**")
+
+                        rating_color = get_rating_color(response['rating'])
+                        with st.container():
+                            st.markdown(f"""
+                            <div style="border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: {rating_color}">
+                                <h4>{model}</h4>
+                                <p><strong>Rating:</strong> {response['rating']}</p>
+                            </div>
+                            """, unsafe_allow_html=True)
                         st.write(response['output'])
-                        st.markdown(f"**Rating:** {response['rating']}")
                         if response['comment']:
                             st.markdown(f"**Comment:** {response['comment']}")
 

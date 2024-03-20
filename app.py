@@ -50,9 +50,9 @@ def main():
                 selected_category = category
 
     if selected_category:
-        st.markdown(f"### Overview of the {selected_category} Ratings")
         st.image(f"{categories_base_url}{selected_category}.png", use_column_width=True)
         
+        st.markdown(f"### Overview of the {selected_category} Ratings")
         st.image(f"{plots_base_url}{selected_category}.png", use_column_width=True, caption="Overview of the Ratings")
 
         models = ['GPT3.5', 'GPT4', 'Llama-2-70B-Chat-GGU', 'Llama-2-70B-GGU']

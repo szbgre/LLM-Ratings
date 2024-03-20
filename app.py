@@ -50,6 +50,9 @@ def main():
                 selected_category = category
 
     if selected_category:
+        st.markdown(f"### Overview of the {selected_category} Ratings")
+        st.image(f"{categories_base_url}{selected_category}.png", use_column_width=True)
+        
         st.image(f"{plots_base_url}{selected_category}.png", use_column_width=True, caption="Overview of the Ratings")
 
         models = ['GPT3.5', 'GPT4', 'Llama-2-70B-Chat-GGU', 'Llama-2-70B-GGU']
@@ -58,9 +61,6 @@ def main():
             data[model] = load_json_from_git(selected_category, model)
 
         if data:
-            st.markdown(f"### Overview of the {selected_category} Ratings")
-            st.image(f"{categories_base_url}{selected_category}.png", use_column_width=True)
-
             st.markdown(f"### Responses and Evaluations for {selected_category}")
             
             num_questions = min(len(data[model]) for model in models if data[model])

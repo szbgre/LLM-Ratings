@@ -33,6 +33,7 @@ def main():
     categories = ['Q1', 'Q2', 'Q3', 'Q4', 'Q5']
     labels_base_url = "https://raw.githubusercontent.com/szbgre/LLM-Ratings/master/Labels/"
     categories_base_url = "https://raw.githubusercontent.com/szbgre/LLM-Ratings/master/Categories/"
+    plots_base_url = "https://raw.githubusercontent.com/szbgre/LLM-Ratings/master/Plots/"
 
     # Display images first
     image_cols = st.columns(len(categories))
@@ -49,6 +50,8 @@ def main():
                 selected_category = category
 
     if selected_category:
+        st.image(f"{plots_base_url}{selected_category}.png", use_column_width=True, caption="Overview of the Ratings")
+        
         models = ['GPT3.5', 'GPT4', 'Llama-2-70B-Chat-GGU', 'Llama-2-70B-GGU']
         data = {}
         for model in models:
@@ -61,14 +64,17 @@ def main():
             # Assuming all models have the same number of questions
             num_questions = min(len(data[model]) for model in models if data[model])
             for q_index in range(num_questions):
-                for model, responses in data.items():
+                question_displayed = False
+                for model in models:
+                    responses = data[model]
                     if responses and q_index < len(responses):
                         response = responses[q_index]
-                        if q_index == 0 or model == models[0]:
+                        if not question_displayed:
                             st.markdown("________________________")
-                        st.markdown(f"#### Question {response['question_id']}")
-                        st.markdown(f"{response['prompt']}")
-                        st.markdown("________________________")
+                            st.markdown(f"#### Question {response['question_id']}")
+                            st.markdown(f"{response['prompt']}")
+                            st.markdown("________________________")
+                            question_displayed = True
 
                         rating_color, description = get_rating_color_and_description(response['rating'])
                         with st.container():

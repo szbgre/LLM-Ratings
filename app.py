@@ -51,17 +51,18 @@ def main():
 
     if selected_category:
         st.image(f"{plots_base_url}{selected_category}.png", use_column_width=True, caption="Overview of the Ratings")
-        
+
         models = ['GPT3.5', 'GPT4', 'Llama-2-70B-Chat-GGU', 'Llama-2-70B-GGU']
         data = {}
         for model in models:
             data[model] = load_json_from_git(selected_category, model)
 
         if data:
+            st.markdown(f"### Overview of the {selected_category} Ratings")
             st.image(f"{categories_base_url}{selected_category}.png", use_column_width=True)
+
             st.markdown(f"### Responses and Evaluations for {selected_category}")
             
-            # Assuming all models have the same number of questions
             num_questions = min(len(data[model]) for model in models if data[model])
             for q_index in range(num_questions):
                 question_displayed = False
@@ -72,7 +73,7 @@ def main():
                         if not question_displayed:
                             st.markdown("________________________")
                             st.markdown(f"#### Question {response['question_id']}")
-                            st.markdown(f"{response['prompt']}")
+                            st.markdown(response['prompt'])
                             st.markdown("________________________")
                             question_displayed = True
 

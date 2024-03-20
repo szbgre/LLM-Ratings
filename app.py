@@ -50,8 +50,7 @@ def main():
                 selected_category = category
 
     if selected_category:
-        st.markdown(f"### Overview of Ratings for {selected_category}")
-        st.image(f"{plots_base_url}{selected_category}.png", use_column_width=True)
+        st.image(f"{plots_base_url}{selected_category}.png", use_column_width=True, caption="Overview of the Ratings")
         
         models = ['GPT3.5', 'GPT4', 'Llama-2-70B-Chat-GGU', 'Llama-2-70B-GGU']
         data = {}
@@ -59,8 +58,12 @@ def main():
             data[model] = load_json_from_git(selected_category, model)
 
         if data:
+            st.image(f"{categories_base_url}{selected_category}.png", use_column_width=True)
             st.markdown(f"### Responses and Evaluations for {selected_category}")
-            for q_index in range(len(data[models[0]])):
+            
+            # Assuming all models have the same number of questions
+            num_questions = min(len(data[model]) for model in models if data[model])
+            for q_index in range(num_questions):
                 question_displayed = False
                 for model in models:
                     responses = data[model]
@@ -69,20 +72,20 @@ def main():
                         if not question_displayed:
                             st.markdown("________________________")
                             st.markdown(f"#### Question {response['question_id']}")
-                            st.markdown(response['prompt'])
+                            st.markdown(f"{response['prompt']}")
                             st.markdown("________________________")
                             question_displayed = True
 
                         rating_color, description = get_rating_color_and_description(response['rating'])
                         with st.container():
                             st.markdown(f"""
-                            <div style="border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: {rating_color};">
+                            <div style="border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: {rating_color};"
+                                        title="{description}: {response['comment']}">
                                 <h4>{model}</h4>
                                 <p><strong>Rating:</strong> {response['rating']} - {description}</p>
-                                <p>{response['output']}</p>
-                                <p><em>{response['comment']}</em></p>
                             </div>
                             """, unsafe_allow_html=True)
+                        st.write(response['output'])
 
     st.markdown("### Explanation of Ratings")
     st.image("Ratings/Ratings.png", use_column_width=True)
